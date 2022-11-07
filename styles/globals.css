@@ -1,26 +1,30 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@font-face {
+	font-family: "Whyte";
+	font-weight: 400 700;
+	src: url("../fonts/ABCWhyteVariable-Trial.ttf");
+}
+
+@font-face {
+	font-family: "Whyte Inktrap";
+	font-weight: 700;
+	src: url("../fonts/ABCWhyteVariable-Trial.ttf");
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	text-decoration: none;
+	color: inherit;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+body {
+	--font-body: "Whyte";
+	--font-inktrap: "Whyte Inktrap";
+	--black: #000;
+	--white: #fff;
+	--red: #f24e1e;
+	--green: #0fa958;
+	--yellow: #ffc700;
+	--purple: #c7b9ff;
+	--max-width: 1280px;
+	--container-padding: 20px;
+	font-family: var(--font-body);
 }
