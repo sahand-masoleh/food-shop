@@ -1,13 +1,13 @@
 @font-face {
 	font-family: "Whyte";
 	font-weight: 400 700;
-	src: url("../fonts/ABCWhyteVariable-Trial.ttf");
+	src: url("../assets/fonts/ABCWhyteVariable-Trial.ttf");
 }
 
 @font-face {
 	font-family: "Whyte Inktrap";
 	font-weight: 700;
-	src: url("../fonts/ABCWhyteVariable-Trial.ttf");
+	src: url("../assets/fonts/ABCWhyteVariable-Trial.ttf");
 }
 
 a {

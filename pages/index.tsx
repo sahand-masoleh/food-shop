@@ -1,17 +1,12 @@
-import Head from "next/head";
+import Carousel from "@/components/Home/Carousel";
+import * as styles from "@/styles/Home/Home.styles";
 
-export default function Home() {
+function Home() {
 	return (
-		<div>
-			<Head>
-				<title>Create Next App</title>
-				<meta
-					name="description"
-					content="A Clone of Figma Store build using Next.js"
-				/>
-				<meta name="author" content="Sahand Masoleh" />
-				<link rel="icon" href="/favicon.png" />
-			</Head>
-		</div>
+		<main>
+			<Carousel />
+		</main>
 	);
 }
+
+export default Home;

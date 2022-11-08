@@ -1,4 +1,4 @@
-import Nav from "@/components/Nav/Nav";
+import Nav from "@/components/common/Nav/Nav";
 
 interface Layoutable {
 	children: JSX.Element;
@@ -8,7 +8,7 @@ function Layout({ children }: Layoutable) {
 	return (
 		<>
 			<Nav />
-			<main>{children}</main>
+			{children}
 			<footer></footer>
 		</>
 	);
