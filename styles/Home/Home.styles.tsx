@@ -14,13 +14,18 @@ export const Div_ClippedImage = styled.div`
 	width: 38rem;
 	flex-shrink: 0;
 	position: relative;
-	overflow: hidden;
-	mask-image: var(--mask-image);
-	mask-origin: padding-box;
-	mask-size: contain;
-	mask-repeat: no-repeat;
 
 	& > img {
+		z-index: 10;
+		mask: inherit;
 		object-fit: cover;
+		object-position: center;
+		clip-path: var(--clip);
+	}
+
+	& > svg {
+		position: absolute;
+		stroke: black;
+		stroke-width: 1px;
 	}
 `;
