@@ -27,7 +27,7 @@ function SVGDefs() {
 				<polygon
 					id="octagon"
 					transform="scale(0.0099) translate(0.5, 0.5)"
-					points="30 0, 70 0, 100 30, 100 70, 70 100, 30 100, 0 70, 0 30"
+					points="50 0, 85.355 14.645, 100 50, 85.355 85.355, 50 100, 14.645 85.355, 0 50, 14.645 14.645"
 				/>
 				<clipPath id="octagon-clip" clipPathUnits="objectBoundingBox">
 					<use href="#octagon" />

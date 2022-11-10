@@ -1,14 +1,33 @@
 import styled from "styled-components";
 
+// main container
 export const Div_Hero = styled.div`
 	background-color: var(--yellow);
-	display: flex;
-	gap: 1rem;
-	overflow-x: scroll;
+	overflow-x: hidden;
 	padding-bottom: 1.5rem;
 	padding-top: 5rem;
+	position: relative;
+	display: flex;
+	overflow-x: auto;
+
+	// each set of images
+	& > div {
+		position: relative;
+		display: flex;
+		gap: 1rem;
+
+		&[data-id="first"] {
+			left: var(--left, 0);
+		}
+
+		&[data-id="second"] {
+			left: var(--left, 0);
+			background-color: goldenrod;
+		}
+	}
 `;
 
+// each image
 export const Div_ClippedImage = styled.div`
 	height: 38rem;
 	width: 38rem;
