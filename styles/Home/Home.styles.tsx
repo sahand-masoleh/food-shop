@@ -22,7 +22,6 @@ export const Div_Hero = styled.div`
 
 		&[data-id="second"] {
 			left: var(--left, 0);
-			background-color: goldenrod;
 		}
 	}
 `;

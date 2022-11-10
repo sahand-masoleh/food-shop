@@ -19,42 +19,18 @@ function Carousel() {
 	const [secondLeft, setSecondLeft] = useState(0);
 
 	function handleIntersection(entry: IntersectionObserverEntry) {
-		const element = entry.target as HTMLDivElement;
-
 		if (entry.isIntersecting) {
-			if (
-				element.parentElement.dataset.id === "first" &&
-				element.dataset.end === "right"
-			) {
-				const prevEndingPoint =
-					element.parentElement.offsetLeft +
-					element.parentElement.offsetWidth -
-					element.parentElement.offsetWidth;
-				setSecondLeft(prevEndingPoint);
-			} else if (
-				element.parentElement.dataset.id === "second" &&
-				element.dataset.end === "right"
-			) {
-				console.log("bingo!");
-				const prevEndingPoint =
-					element.parentElement.offsetLeft + element.parentElement.offsetWidth;
-				setFirstLeft(prevEndingPoint);
-			} else if (
-				element.parentElement.dataset.id === "first" &&
-				element.dataset.end === "left"
-			) {
-				const prevStartingPoint =
-					element.parentElement.offsetLeft -
-					element.parentElement.offsetWidth -
-					element.parentElement.offsetWidth;
-				setSecondLeft(prevStartingPoint);
-			} else if (
-				element.parentElement.dataset.id === "second" &&
-				element.dataset.end === "left"
-			) {
-				const prevEndingPoint =
-					element.parentElement.offsetLeft - element.parentElement.offsetWidth;
-				setFirstLeft(prevEndingPoint);
+			const element = entry.target as HTMLDivElement;
+
+			const { offsetLeft, offsetWidth } = element.parentElement;
+			const { id } = element.parentElement.dataset;
+			const { end } = element.dataset;
+
+			const newLeft = offsetLeft + offsetWidth * (end === "left" ? -1 : 1);
+			if (id === "first") {
+				setSecondLeft(newLeft - offsetWidth);
+			} else if (id === "second") {
+				setFirstLeft(newLeft);
 			}
 		}
 	}
