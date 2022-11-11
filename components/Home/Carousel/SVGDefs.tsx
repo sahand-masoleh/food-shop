@@ -1,6 +1,6 @@
 function SVGDefs() {
 	return (
-		<svg>
+		<svg width="0" height="0">
 			<defs>
 				<polygon
 					id="zigzag"

@@ -1,6 +1,5 @@
 import { css } from "styled-components";
 
-export const maxWidth = (width?: number) => css`
+export const maxWidth = (width?: string) => css`
 	max-width: ${width || "var(--max-width)"};
-	margin: 0 auto;
 `;

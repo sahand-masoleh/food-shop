@@ -6,8 +6,8 @@
 
 @font-face {
 	font-family: "Whyte Inktrap";
-	font-weight: 700;
-	src: url("../assets/fonts/ABCWhyteVariable-Trial.ttf");
+	font-weight: 580;
+	src: url("../assets/fonts/ABCWhyteInktrapVariable-Trial.ttf");
 }
 
 a {
@@ -26,5 +26,7 @@ body {
 	--purple: #c7b9ff;
 	--max-width: 1280px;
 	--container-padding: 20px;
+	--transition-duration: 0.1s;
+
 	font-family: var(--font-body);
 }

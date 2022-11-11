@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 // main container
-export const Div_Hero = styled.div`
+export const Div_Carousel = styled.div`
 	background-color: var(--yellow);
-	overflow-x: hidden;
 	padding-bottom: 1.5rem;
 	padding-top: 5rem;
 	position: relative;
 	display: flex;
 	overflow-x: auto;
-	pointer-events: all;
+	border-bottom: 0.25rem solid var(--black);
 
 	// Hide scrollbar
 	// Chrome, Safari and Opera
@@ -21,7 +20,7 @@ export const Div_Hero = styled.div`
 		scrollbar-width: none; // Firefox
 	}
 
-	// each set of images
+	// each set of images (ImageContainer)
 	& > div {
 		display: flex;
 	}
@@ -46,6 +45,5 @@ export const Div_ClippedImage = styled.div`
 	& > svg {
 		position: absolute;
 		stroke: black;
-		stroke-width: 1px;
 	}
 `;
