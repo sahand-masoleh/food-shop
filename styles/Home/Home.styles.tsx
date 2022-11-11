@@ -9,20 +9,21 @@ export const Div_Hero = styled.div`
 	position: relative;
 	display: flex;
 	overflow-x: auto;
+	pointer-events: all;
+
+	// Hide scrollbar
+	// Chrome, Safari and Opera
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	& {
+		-ms-overflow-style: none; // IE and Edge
+		scrollbar-width: none; // Firefox
+	}
 
 	// each set of images
 	& > div {
-		position: relative;
 		display: flex;
-		gap: 1rem;
-
-		&[data-id="first"] {
-			left: var(--left, 0);
-		}
-
-		&[data-id="second"] {
-			left: var(--left, 0);
-		}
 	}
 `;
 
@@ -31,6 +32,7 @@ export const Div_ClippedImage = styled.div`
 	height: 38rem;
 	width: 38rem;
 	flex-shrink: 0;
+	margin: 0 0.5rem;
 	position: relative;
 
 	& > img {

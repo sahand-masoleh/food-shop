@@ -15,38 +15,31 @@ const images = [
 ];
 
 function Carousel() {
-	const [firstLeft, setFirstLeft] = useState(0);
-	const [secondLeft, setSecondLeft] = useState(0);
+	const ref = useRef<HTMLDivElement>();
 
 	function handleIntersection(entry: IntersectionObserverEntry) {
 		if (entry.isIntersecting) {
 			const element = entry.target as HTMLDivElement;
 
-			const { offsetLeft, offsetWidth } = element.parentElement;
-			const { id } = element.parentElement.dataset;
 			const { end } = element.dataset;
 
-			const newLeft = offsetLeft + offsetWidth * (end === "left" ? -1 : 1);
-			if (id === "first") {
-				setSecondLeft(newLeft - offsetWidth);
-			} else if (id === "second") {
-				setFirstLeft(newLeft);
+			const elementWidth = element.offsetWidth;
+			const parentWidth = element.parentElement.offsetWidth;
+			const containerWidth = ref.current.offsetWidth;
+
+			if (end === "left") {
+				ref.current.scrollTo(parentWidth + elementWidth, 0);
+			}
+			if (end === "right") {
+				ref.current.scrollTo(parentWidth - elementWidth - containerWidth, 0);
 			}
 		}
 	}
 
 	return (
-		<s.Div_Hero>
-			<Hero
-				id="first"
-				left={firstLeft}
-				handleIntersection={handleIntersection}
-			/>
-			<Hero
-				id="second"
-				left={secondLeft}
-				handleIntersection={handleIntersection}
-			/>
+		<s.Div_Hero ref={ref}>
+			<Hero order="first" handleIntersection={handleIntersection} />
+			<Hero order="second" handleIntersection={handleIntersection} />
 			<SVGDefs />
 		</s.Div_Hero>
 	);
@@ -61,35 +54,35 @@ export default Carousel;
  */
 
 interface Heroable {
-	id: "first" | "second";
-	left: number;
+	order: "first" | "second";
 	handleIntersection: (entry: IntersectionObserverEntry) => void;
 }
 
-function Hero({ id, left, handleIntersection }: Heroable) {
-	const mainRef = useRef<HTMLDivElement>();
-	const leftRef = useRef<HTMLDivElement>();
-	const rightRef = useRef<HTMLDivElement>();
+function Hero({ order, handleIntersection }: Heroable) {
+	const ref = useRef<HTMLDivElement>();
 	const observer = useRef<IntersectionObserver>();
 
 	useEffect(() => {
 		observer.current = new IntersectionObserver((e) =>
 			handleIntersection(e[0])
 		);
-		observer.current.observe(leftRef.current);
-		observer.current.observe(rightRef.current);
-
-		id === "first" && mainRef.current.scrollIntoView({ inline: "center" });
+		observer.current.observe(ref.current);
 
 		return () => observer.current.disconnect();
 	}, []);
 
+	function detectEnd(i: number) {
+		if (i === 0 && order === "first") return "left";
+		if (i === images.length - 1 && order === "second") return "right";
+	}
+
 	const imagesMap = images.map((image, i) => {
+		const end = detectEnd(i);
 		return (
 			<s.Div_ClippedImage
 				key={image[0]}
-				ref={i === 0 ? leftRef : i === 7 ? rightRef : null}
-				data-end={i === 0 ? "left" : i === 7 ? "right" : null}
+				ref={end ? ref : null}
+				data-end={end}
 				style={
 					{
 						"--clip": `url(#${image[2]}-clip)`,
@@ -104,17 +97,5 @@ function Hero({ id, left, handleIntersection }: Heroable) {
 		);
 	});
 
-	return (
-		<div
-			ref={mainRef}
-			data-id={id}
-			style={
-				{
-					"--left": `${left}px`,
-				} as React.CSSProperties
-			}
-		>
-			{imagesMap}
-		</div>
-	);
+	return <div data-order={order}>{imagesMap}</div>;
 }
