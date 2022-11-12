@@ -1,1 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Hand Right</title><path d="M79.2 211.44c15.52-8.82 34.91-2.28 43.31 13.68l41.38 84.41a7 7 0 008.93 3.43 7 7 0 004.41-6.52V72c0-13.91 12.85-24 26.77-24s26 10.09 26 24v156.64A11.24 11.24 0 00240.79 240 11 11 0 00252 229V24c0-13.91 10.94-24 24.86-24S302 10.09 302 24v204.64A11.24 11.24 0 00312.79 240 11 11 0 00324 229V56c0-13.91 12.08-24 26-24s26 11.09 26 25v187.64A11.24 11.24 0 00386.79 256 11 11 0 00398 245V120c0-13.91 11.08-24 25-24s25.12 10.22 25 24v216c0 117.41-72 176-160 176h-16c-88 0-115.71-39.6-136-88L67.33 255c-6.66-18-3.64-34.75 11.87-43.56z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="17.894781"
+   height="20.9"
+   viewBox="0 0 17.894781 20.899999"
+   fill="none"
+   version="1.1"
+   id="svg12"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <path
+     id="path2"
+     style="stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;fill:currentColor"
+     d="M 9.9642713,0.44999999 C 9.1250722,0.44999999 8.4447404,1.1215709 8.4447404,1.95 v 2 c 0,-1.1999988 -0.9935005,-1.5 -1.5,-1.5 -0.8392391,0 -1.5,0.6911121 -1.5,1.5195313 V 12.340256 L 3.3763811,10.082812 C 2.9276099,9.6103117 2.222941,9.3148784 1.5580217,9.5300782 0.56976265,9.8499774 0.1411928,10.977032 0.67716226,11.844531 L 2.2474748,14.45 c 2.999997,4.999995 4.3312792,6 8.1972652,6 3.791209,0 6.994141,-3.658946 6.994141,-5.771485 0,-2.112539 0.0059,2.026688 0.0059,-7.728515 0,-0.8284291 -0.641269,-1.5 -1.480469,-1.5 -0.519499,0 -1.519531,0.3000012 -1.519531,1.5 v -3 c 0,-0.8284291 -0.641169,-1.5 -1.480469,-1.5 -0.506499,0 -1.519531,0.3000012 -1.519531,1.5 v -2 c 0,-0.8284291 -0.641169,-1.5 -1.4804687,-1.50000001 z" />
+  <path
+     d="m 8.443805,3.9496094 v 5.5"
+     stroke="#000000"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path4"
+     style="stroke-width:1;stroke-dasharray:none;fill:currentColor" />
+  <path
+     d="m 11.443805,3.9496094 v 5.5"
+     stroke="#000000"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path6"
+     style="stroke-width:1;stroke-dasharray:none;fill:currentColor" />
+  <path
+     d="m 14.443805,3.9496094 v 5.5"
+     stroke="#000000"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path8"
+     style="stroke-width:1;stroke-dasharray:none;fill:currentColor" />
+</svg>

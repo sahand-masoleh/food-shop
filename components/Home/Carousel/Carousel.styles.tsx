@@ -8,7 +8,7 @@ export const Div_Carousel = styled.div`
 	position: relative;
 	display: flex;
 	overflow-x: auto;
-	border-bottom: 0.25rem solid var(--black);
+	border-bottom: var(--outline-width) solid var(--black);
 
 	// Hide scrollbar
 	// Chrome, Safari and Opera

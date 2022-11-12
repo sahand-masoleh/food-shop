@@ -24,10 +24,10 @@ export const Logo = styled.span`
 `;
 
 /* header > nav > button-container */
-interface ButtonContainerable {
+interface Div_ButtonContainerable {
 	right?: boolean;
 }
-export const Div_ButtonContainer = styled.div<ButtonContainerable>`
+export const Div_ButtonContainer = styled.div<Div_ButtonContainerable>`
 	flex-grow: 1;
 	flex-basis: 0;
 	display: flex;
@@ -80,7 +80,7 @@ const SearchField = styled(motion.div)`
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	border-bottom: 0.2rem solid var(--black);
+	border-bottom: var(--outline-width) solid var(--black);
 	background-color: var(--white);
 
 	& > form {
@@ -95,10 +95,10 @@ const SearchField = styled(motion.div)`
 		}
 	}
 `;
-interface SearchFieldAnimatedable {
+interface M_Div_SearchFieldable {
 	children: JSX.Element;
 }
-export const M_Div_SearchField = ({ children }: SearchFieldAnimatedable) => {
+export const M_Div_SearchField = ({ children }: M_Div_SearchFieldable) => {
 	return (
 		<SearchField
 			as={motion.div}
