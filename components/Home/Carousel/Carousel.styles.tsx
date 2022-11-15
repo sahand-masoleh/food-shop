@@ -9,6 +9,7 @@ export const Div_Carousel = styled.div`
 	display: flex;
 	overflow-x: auto;
 	border-bottom: var(--outline-width) solid var(--black);
+	cursor: grab;
 
 	// Hide scrollbar
 	// Chrome, Safari and Opera
@@ -28,11 +29,14 @@ export const Div_Carousel = styled.div`
 
 // each image
 export const Div_ClippedImage = styled.div`
+	pointer-events: none;
 	height: 38rem;
 	width: 38rem;
 	flex-shrink: 0;
 	margin: 0 0.5rem;
 	position: relative;
+	pointer-events: none;
+	user-select: none;
 
 	& > img {
 		z-index: 10;

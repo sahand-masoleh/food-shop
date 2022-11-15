@@ -38,7 +38,8 @@ function Intro() {
 				<Tri />
 				<span>friends</span>
 			</div>
-			<ForestationBadge />
+			{/* TODO: overflow causes scroll on parent */}
+			{/* <ForestationBadge /> */}
 		</s.Div_Intro>
 	);
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { MouseEventHandler, useEffect, useRef } from "react";
 import * as s from "./Carousel.styles";
 import ImageContainer from "./ImageContainer";
 import SVGDefs from "./SVGDefs";
@@ -14,8 +14,12 @@ const images = [
 	["Blue figma hat", "/Home/Carousel/08.webp", "zigzag"],
 ];
 
+const EMPTY_IMAGE =
+	"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
 function Carousel() {
-	const ref = useRef<HTMLDivElement>();
+	const containerRef = useRef<HTMLDivElement>();
+	const dragRef = useRef<number>(0);
 
 	function handleIntersection(entry: IntersectionObserverEntry) {
 		if (entry.isIntersecting) {
@@ -25,19 +29,43 @@ function Carousel() {
 
 			const elementWidth = element.offsetWidth;
 			const parentWidth = element.parentElement.offsetWidth;
-			const containerWidth = ref.current.offsetWidth;
+			const containerWidth = containerRef.current.offsetWidth;
 
 			if (end === "left") {
-				ref.current.scrollTo(parentWidth + elementWidth, 0);
+				containerRef.current.scrollTo(parentWidth + elementWidth, 0);
 			}
 			if (end === "right") {
-				ref.current.scrollTo(parentWidth - elementWidth - containerWidth, 0);
+				containerRef.current.scrollTo(
+					parentWidth - elementWidth - containerWidth,
+					0
+				);
 			}
 		}
 	}
 
+	function handleMouseMove(event: React.DragEvent<HTMLDivElement>) {
+		const { clientX, type } = event;
+		const emptyImage = new Image(0, 0);
+		emptyImage.src = EMPTY_IMAGE;
+
+		event.dataTransfer.setDragImage(emptyImage, 0, 0);
+
+		if (type === "dragstart") {
+			dragRef.current = clientX;
+		} else {
+			const move = clientX - dragRef.current;
+			containerRef.current.scrollBy({ left: move * -1 });
+			dragRef.current = clientX;
+		}
+	}
+
 	return (
-		<s.Div_Carousel ref={ref}>
+		<s.Div_Carousel
+			ref={containerRef}
+			onDragStart={handleMouseMove}
+			onDragOver={handleMouseMove}
+			draggable={"true"}
+		>
 			<ImageContainer
 				images={images}
 				order="first"
