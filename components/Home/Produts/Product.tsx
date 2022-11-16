@@ -4,18 +4,15 @@ import Image from "next/image";
 import * as s from "./Producs.styles";
 
 export interface Productable {
-	id?: number;
 	name: string;
 	cover: string;
 	slices: string;
-	is_hero?: boolean;
 }
 
 function Product({ name, cover, slices }: Productable) {
 	const [hovered, setHovered] = useState(false);
 
 	function handleHover() {
-		console.log("now");
 		setHovered((prevHoevered) => !prevHoevered);
 	}
 

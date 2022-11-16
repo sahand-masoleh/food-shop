@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { maxWidth } from "@/styles/globals";
 
 export const Div_Intro = styled.div`
-	${maxWidth()}
+	${maxWidth("68rem")}
 	margin: 0 auto;
 	padding: 10rem 0;
 	position: relative;

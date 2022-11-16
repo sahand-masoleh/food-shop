@@ -34,7 +34,7 @@ function Nav() {
 						<SearchIcon />
 					</s.Button>
 				</s.Div_ButtonContainer>
-				<s.Logo>the figma store</s.Logo>
+				<s.Logo>the food shop</s.Logo>
 				<s.Div_ButtonContainer right>
 					<Link href="/cart" passHref legacyBehavior>
 						<s.A>cart 0</s.A>

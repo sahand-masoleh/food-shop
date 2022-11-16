@@ -2,17 +2,16 @@ import Product, { Productable } from "./Product";
 import * as s from "./Producs.styles";
 
 export interface ProductContainerable {
-	products: Productable[];
-	backendURL: string;
+	products: (Productable & { id: number })[];
 }
 
-function ProductContainer({ products, backendURL }: ProductContainerable) {
+function ProductContainer({ products }: ProductContainerable) {
 	const productMap = products.map((product) => (
 		<Product
 			key={product.id}
 			name={product.name}
-			cover={backendURL + product.cover}
-			slices={backendURL + product.slices}
+			cover={product.cover}
+			slices={product.slices}
 		/>
 	));
 

@@ -2,14 +2,20 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import * as s from "./Carousel.styles";
 
+export type Hero = {
+	id: number;
+	name: string;
+	hero: string;
+};
+
 interface ImageContainerable {
-	images: string[][];
+	heroes: Hero[];
 	order: "first" | "second";
 	handleIntersection: (entry: IntersectionObserverEntry) => void;
 }
 
 function ImageContainer({
-	images,
+	heroes,
 	order,
 	handleIntersection,
 }: ImageContainerable) {
@@ -27,31 +33,31 @@ function ImageContainer({
 
 	function detectEnd(i: number) {
 		if (i === 0 && order === "first") return "left";
-		if (i === images.length - 1 && order === "second") return "right";
+		if (i === heroes.length - 1 && order === "second") return "right";
 	}
 
-	const imagesMap = images.map((image, i) => {
+	const heroesMap = heroes.map((hero, i) => {
 		const end = detectEnd(i);
 		return (
 			<s.Div_ClippedImage
-				key={image[0]}
+				key={hero.id}
 				ref={end ? ref : null}
 				data-end={end}
 				style={
 					{
-						"--clip": `url(#${image[2]}-clip)`,
+						"--clip": `url(#${hero.name}-clip)`,
 					} as React.CSSProperties
 				}
 			>
-				<Image src={image[1]} alt={image[0]} fill />
+				<Image src={hero.hero} alt={hero.name} fill />
 				<svg viewBox="0 0 1 1">
-					<use href={`#${image[2]}`} />
+					<use href={`#${hero.name}`} />
 				</svg>
 			</s.Div_ClippedImage>
 		);
 	});
 
-	return <div data-order={order}>{imagesMap}</div>;
+	return <div data-order={order}>{heroesMap}</div>;
 }
 
 export default ImageContainer;

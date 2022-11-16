@@ -1,23 +1,16 @@
-import React, { MouseEventHandler, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import * as s from "./Carousel.styles";
-import ImageContainer from "./ImageContainer";
+import ImageContainer, { Hero } from "./ImageContainer";
 import SVGDefs from "./SVGDefs";
-
-const images = [
-	["Figma logo pin", "/Home/Carousel/01.webp", "octagon"],
-	["Rainbow logo tree", "/Home/Carousel/02.webp", "hourglass"],
-	["Bezier water bottle", "/Home/Carousel/03.webp", "circle"],
-	["Figma embroided hoodie", "/Home/Carousel/04.webp", "zigzag"],
-	["Figma wordmark tee", "/Home/Carousel/05.webp", "octagon"],
-	["Light gre coment icon socks", "/Home/Carousel/06.webp", "hourglass"],
-	["Throw blanket", "/Home/Carousel/07.webp", "rectangle"],
-	["Blue figma hat", "/Home/Carousel/08.webp", "zigzag"],
-];
 
 const EMPTY_IMAGE =
 	"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
-function Carousel() {
+interface Carousalable {
+	heroes: Hero[];
+}
+
+function Carousel({ heroes }: Carousalable) {
 	const containerRef = useRef<HTMLDivElement>();
 	const dragRef = useRef<number>(0);
 
@@ -68,12 +61,12 @@ function Carousel() {
 			draggable={"true"}
 		>
 			<ImageContainer
-				images={images}
+				heroes={heroes}
 				order="first"
 				handleIntersection={handleIntersection}
 			/>
 			<ImageContainer
-				images={images}
+				heroes={heroes}
 				order="second"
 				handleIntersection={handleIntersection}
 			/>
