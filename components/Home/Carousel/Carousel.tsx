@@ -32,13 +32,14 @@ function Carousel() {
 			const containerWidth = containerRef.current.offsetWidth;
 
 			if (end === "left") {
-				containerRef.current.scrollTo(parentWidth + elementWidth, 0);
+				containerRef.current.scrollTo({
+					left: parentWidth + elementWidth,
+				});
 			}
 			if (end === "right") {
-				containerRef.current.scrollTo(
-					parentWidth - elementWidth - containerWidth,
-					0
-				);
+				containerRef.current.scrollTo({
+					left: parentWidth - elementWidth - containerWidth,
+				});
 			}
 		}
 	}

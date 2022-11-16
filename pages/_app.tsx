@@ -8,10 +8,10 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
-				<title>The Figma Store</title>
+				<title>The Food Shop</title>
 				<meta
 					name="description"
-					content="A Clone of Figma Store build using Next.js"
+					content="A fuits and vegetables shop built using Next.js"
 				/>
 				<meta name="author" content="Sahand Masoleh" />
 				<link rel="icon" href="/favicon.png" />
