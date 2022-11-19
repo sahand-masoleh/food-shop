@@ -6,7 +6,7 @@ import { maxWidth } from "@/styles/globals";
 // the container
 export const DIV_ProductContainer = styled.div`
 	${maxWidth()}
-	margin: 0 auto;
+	margin: 0 auto 10rem;
 	display: grid;
 	gap: 2rem;
 	grid-template-columns: repeat(4, 1fr);

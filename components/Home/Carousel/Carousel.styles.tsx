@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // main container
 export const Div_Carousel = styled.div`
-	background-color: var(--yellow);
+	background-color: var(--red);
 	padding-bottom: 1.5rem;
 	padding-top: 5rem;
 	position: relative;

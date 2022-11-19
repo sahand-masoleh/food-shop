@@ -1,41 +1,36 @@
 import { useState } from "react";
 import Link from "next/link";
 import * as s from "./Intro.styles";
-import Apple from "@/assets/shapes/apple.svg";
-import Banana from "@/assets/shapes/banana.svg";
-import Carrot from "@/assets/shapes/carrot.svg";
-import Cherry from "@/assets/shapes/cherry.svg";
-import Lemon from "@/assets/shapes/lemon.svg";
-import Orange from "@/assets/shapes/orange.svg";
-import Pear from "@/assets/shapes/pear.svg";
-import Strawberry from "@/assets/shapes/strawberry.svg";
+import foodIcons, { Icon } from "@/components/common/FoodIcons";
 // import Reforestation from "@/assets/shapes/reforestation.svg";
 // import Hand from "@/assets/icons/hand.svg";
 // import Hit from "@/assets/icons/hit.svg";
+import Strawberry from "@/assets/shapes/strawberry.svg";
 
 function Intro() {
+	const foods = foodIcons();
 	return (
 		<s.Div_Intro>
 			<div className="text-container">
 				<span>Our</span>
-				<Apple />
+				<Icon SVG={foods.next().value} />
 				<span>collection</span>
-				<Banana />
+				<Icon SVG={foods.next().value} />
 				<span>of</span>
 				<br />
 				<span className="focus">fruits</span>
-				<Carrot className="focus" />
+				<Icon SVG={foods.next().value} />
 				<span>and</span>
-				<Cherry className="focus" />
+				<Icon SVG={foods.next().value} />
 				<span className="focus">vegetables</span>
-				<Lemon />
+				<Icon SVG={foods.next().value} />
 				<span>for</span>
 				<span>you</span>
-				<Orange />
+				<Icon SVG={foods.next().value} />
 				<span>and</span>
-				<Pear />
+				<Icon SVG={foods.next().value} />
 				<span>your</span>
-				<Strawberry />
+				<Icon SVG={foods.next().value} />
 				<span>family</span>
 			</div>
 			{/* TODO: overflow causes scroll on parent */}

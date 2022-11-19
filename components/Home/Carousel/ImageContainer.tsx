@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { clipIterator } from "./SVGDefs";
 import * as s from "./Carousel.styles";
 
 export type Hero = {
@@ -36,8 +37,10 @@ function ImageContainer({
 		if (i === heroes.length - 1 && order === "second") return "right";
 	}
 
+	const frames = clipIterator();
 	const heroesMap = heroes.map((hero, i) => {
 		const end = detectEnd(i);
+		const frame = frames.next().value;
 		return (
 			<s.Div_ClippedImage
 				key={hero.id}
@@ -45,13 +48,13 @@ function ImageContainer({
 				data-end={end}
 				style={
 					{
-						"--clip": `url(#${hero.name}-clip)`,
+						"--clip": `url(#${frame}-clip)`,
 					} as React.CSSProperties
 				}
 			>
 				<Image src={hero.hero} alt={hero.name} fill />
 				<svg viewBox="0 0 1 1">
-					<use href={`#${hero.name}`} />
+					<use href={`#${frame}`} />
 				</svg>
 			</s.Div_ClippedImage>
 		);

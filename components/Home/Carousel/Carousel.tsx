@@ -24,6 +24,10 @@ function Carousel({ heroes }: Carousalable) {
 			const parentWidth = element.parentElement.offsetWidth;
 			const containerWidth = containerRef.current.offsetWidth;
 
+			// in case the windows is wide enough that two items
+			// are being seen at the same time
+			if (parentWidth - elementWidth * 2 < window.innerWidth) return;
+
 			if (end === "left") {
 				containerRef.current.scrollTo({
 					left: parentWidth + elementWidth,

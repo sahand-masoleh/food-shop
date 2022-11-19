@@ -20,10 +20,10 @@ body {
 	--font-inktrap: "Whyte Inktrap";
 	--black: #000;
 	--white: #fff;
-	--red: #f24e1e;
-	--green: #0fa958;
-	--yellow: #ffc700;
-	--purple: #c7b9ff;
+	--red: #e00000;
+	--green: #62b400;
+	--yellow: #ffd400;
+	--purple: #4f66d0;
 	--max-width: 1280px;
 	--container-padding: 20px;
 	--transition-duration: 0.1s;

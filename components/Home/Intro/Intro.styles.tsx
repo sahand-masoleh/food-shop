@@ -3,8 +3,8 @@ import { maxWidth } from "@/styles/globals";
 
 export const Div_Intro = styled.div`
 	${maxWidth("68rem")}
-	margin: 0 auto;
-	padding: 10rem 0;
+	margin: 0 auto 10rem;
+	padding: 10rem 0 0;
 	position: relative;
 
 	& > .text-container {
