@@ -1,24 +1,20 @@
-import { AnimationEventHandler, useEffect, useRef, useState } from "react";
-import foodIcons, { Icon } from "@/components/common/FoodIcons";
+import { useEffect, useState } from "react";
+import QuoteCarousel from "./QuoteCarousel";
+import Badge from "./Badge";
 import * as s from "./Footer.styles";
-
-const colors = ["green", "blue", "red", "yellow"];
+import randomColors, { Color } from "./randomColors";
 
 function Footer() {
-	const [color, setColor] = useState<"green" | "blue" | "red" | "yellow">(
-		"yellow"
-	);
+	const [colors, setColor] = useState<Color[]>(["yellow", "red"]);
 	useEffect(() => {
-		const randomIndex = Math.floor(Math.random() * colors.length);
-		const randomColor = colors[randomIndex];
-		setColor(randomColor as "green" | "blue" | "red" | "yellow");
+		setColor(randomColors(2));
 	}, []);
 
 	return (
 		<s.Div_Footer
-			style={{ "--color": `var(--${color})` } as React.CSSProperties}
+			style={{ "--color": `var(--${colors[0]})` } as React.CSSProperties}
 		>
-			<div></div>
+			<Info badgeColor={colors[1]} />
 			<QuoteCarousel />
 		</s.Div_Footer>
 	);
@@ -26,27 +22,14 @@ function Footer() {
 
 export default Footer;
 
-function QuoteCarousel() {
-	return (
-		<s.Div_Quote className="quote-carousel">
-			<QuoteWrapper />
-			<QuoteWrapper />
-		</s.Div_Quote>
-	);
+interface Infoable {
+	badgeColor: Color;
 }
 
-function QuoteWrapper() {
-	const quote =
-		//prettier-ignore
-		"you should have fruits and vegetables if you want to have a fruitful life you should have fruits and vegetables if you want to have a fruitfull life"
-		.split(" ");
-	const foods = foodIcons();
-
-	const quoteMap = quote.map((e, i) => (
-		<div key={e + i}>
-			{e} <Icon SVG={foods.next().value} />
-		</div>
-	));
-
-	return <div>{quoteMap}</div>;
+function Info({ badgeColor }: Infoable) {
+	return (
+		<s.Div_Info>
+			<Badge color={badgeColor} />
+		</s.Div_Info>
+	);
 }

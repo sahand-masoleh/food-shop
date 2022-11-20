@@ -6,18 +6,26 @@ import Lemon from "@/assets/shapes/lemon.svg";
 import Orange from "@/assets/shapes/orange.svg";
 import Pear from "@/assets/shapes/pear.svg";
 import Strawberry from "@/assets/shapes/strawberry.svg";
+import Grape from "@/assets/shapes/grape.svg";
+import Watermelon from "@/assets/shapes/watermelon.svg";
+import Kiwi from "@/assets/shapes/kiwi.svg";
 
 function foodIcons() {
 	let pointer = 0;
 	const foods: React.FC<React.SVGProps<SVGSVGElement>>[] = [
-		Apple,
 		Banana,
 		Carrot,
+		Grape,
 		Cherry,
-		Lemon,
-		Orange,
+
 		Pear,
+		Orange,
+		Watermelon,
 		Strawberry,
+
+		Apple,
+		Lemon,
+		Kiwi,
 	];
 	return {
 		next() {

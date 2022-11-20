@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { maxWidth } from "@/styles/globals";
 
 export const Div_Footer = styled.div`
 	height: 26rem;
@@ -7,12 +8,26 @@ export const Div_Footer = styled.div`
 	flex-direction: column;
 `;
 
+export const Div_Info = styled.div`
+	${maxWidth()}
+	margin: 3rem auto;
+	width: 100%;
+	display: flex;
+	flex-grow: 1;
+
+	& > svg {
+		height: 18rem;
+		color: var(--badge-color, var(--yellow));
+	}
+`;
+
 export const Div_Quote = styled.div`
 	margin-top: auto;
 	margin-bottom: 0.5ch;
 	display: flex;
 	position: relative;
 	overflow: hidden;
+	color: var(--black);
 
 	// each set
 	& > div {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1">
+    <rect
+       style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:0.37926;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect788"
+       width="50"
+       height="50"
+       x="35.355339"
+       y="-35.355339"
+       transform="rotate(45)" />
+    <rect
+       style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:0.37926;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect788-3"
+       width="50"
+       height="50"
+       x="56.066021"
+       y="-14.644663"
+       transform="rotate(45)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:600;font-size:10.58330002px;line-height:1.25;font-family:FreeSans;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;-inkscape-font-specification:'FreeSans, Semi-Bold';font-stretch:normal;font-variant:normal;font-variant-ligatures:discretionary-ligatures ;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="49.999992"
+       y="72.486885"
+       id="text1031"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.58330002px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures ;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="49.999992"
+         y="72.486885"
+         id="tspan1035">SHOP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:600;font-size:10.58330002px;line-height:1.25;font-family:FreeSans;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;-inkscape-font-specification:'FreeSans, Semi-Bold';font-stretch:normal;font-variant:normal;font-variant-ligatures:discretionary-ligatures ;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="50.05291"
+       y="35.355339"
+       id="text1031-7"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.58330002px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures ;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="50.05291"
+         y="35.355339"
+         id="tspan1035-5">THE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:600;font-size:10.58330002px;line-height:1.25;font-family:FreeSans;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;-inkscape-font-specification:'FreeSans, Semi-Bold';font-stretch:normal;font-variant:normal;font-variant-ligatures:discretionary-ligatures ;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="49.78833"
+       y="53.799404"
+       id="text1031-0"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.58330002px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures ;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="49.78833"
+         y="53.799404"
+         id="tspan1035-1">FOOD</tspan></text>
+  </g>
+</svg>

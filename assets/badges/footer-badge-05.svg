@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="rotate(180,50.000049,50.00005)">
+    <rect
+       style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:0.437929;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect788"
+       width="100"
+       height="33.333"
+       x="-1.771028e-06"
+       y="0" />
+    <rect
+       style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:0.437929;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect788-0"
+       width="100"
+       height="33.333"
+       x="0"
+       y="66.667" />
+    <path
+       id="rect788-3"
+       style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:0.692432;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       d="M 16.666683,0 V 33.332849 A 16.667,16.667 0 0 1 33.333883,50.000049 16.667,16.667 0 0 1 16.666683,66.667249 V 100.0001 H 100.0001 V 0 Z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-80.135872"
+       y="-13.052303"
+       id="text1031"
+       transform="scale(-1)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.5833px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-80.135872"
+         y="-13.052303"
+         id="tspan1035">SHOP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-84.427399"
+       y="-79.846306"
+       id="text1031-7"
+       transform="scale(-1)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.5833px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-84.427399"
+         y="-79.846306"
+         id="tspan1035-5">THE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-80.395157"
+       y="-46.571014"
+       id="text1031-0"
+       transform="scale(-1)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.5833px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Semi-Bold';font-variant-ligatures:discretionary-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-80.395157"
+         y="-46.571014"
+         id="tspan1035-1">FOOD</tspan></text>
+  </g>
+</svg>
