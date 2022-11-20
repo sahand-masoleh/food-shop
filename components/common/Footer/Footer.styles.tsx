@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Div_Footer = styled.div`
 	height: 26rem;
@@ -12,16 +12,27 @@ export const Div_Quote = styled.div`
 	margin-bottom: 0.5ch;
 	display: flex;
 	position: relative;
-	overflow: scroll;
+	overflow: hidden;
 
 	// each set
 	& > div {
 		flex-shrink: 0;
 		padding-right: 1ch;
 		display: flex;
+		justify-content: flex-end;
 		gap: 0.5ch;
-		position: relative;
-		left: var(--left);
+		overflow: hidden;
+
+		animation: shrink 30s linear infinite;
+		@keyframes shrink {
+			from {
+				translate: 0 0;
+			}
+
+			to {
+				translate: -100% 0;
+			}
+		}
 
 		// each word and image
 		& > div {
@@ -37,7 +48,7 @@ export const Div_Quote = styled.div`
 				display: block;
 				flex-shrink: 0;
 				height: 1.6rem;
-				width: 1.6rem;
+				min-width: 1.6rem;
 				--fill: var(--white);
 			}
 		}
