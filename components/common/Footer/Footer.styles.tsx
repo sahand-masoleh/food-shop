@@ -6,23 +6,78 @@ export const Div_Footer = styled.div`
 	background-color: var(--color, var(--yellow));
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 `;
 
 export const Div_Info = styled.div`
 	${maxWidth()}
-	margin: 3rem auto;
+	margin: auto auto;
 	width: 100%;
-	display: flex;
-	flex-grow: 1;
+	height: 16rem;
+	display: grid;
+	grid-template-columns: auto 2fr 1fr auto;
+	grid-template-rows: 1fr auto;
+	grid-template-areas:
+		"badge slogan legal legal"
+		"badge socials socials up";
+	gap: 1rem;
 
 	& > svg {
-		height: 18rem;
+		grid-area: badge;
+		height: inherit;
+		padding-right: 5rem;
 		color: var(--badge-color, var(--yellow));
+	}
+
+	& > button {
+		grid-area: up;
+		align-self: end;
+		background-color: transparent;
+		border: none;
+		height: 4rem;
+		width: 4rem;
+		cursor: pointer;
+		color: var(--black);
+		transition: color var(--transition-duration) linear;
+
+		&:hover {
+			color: var(--white);
+		}
+	}
+
+	& > h3 {
+		grid-area: slogan;
+		text-transform: uppercase;
+		font-size: 2rem;
+		font-weight: 600;
+	}
+
+	& > .legal {
+		grid-area: legal;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		& > a {
+			text-transform: capitalize;
+			font-size: 1.1rem;
+		}
+	}
+
+	& > .socials {
+		grid-area: socials;
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+
+		& > a {
+			text-transform: uppercase;
+			font-size: 1.6rem;
+		}
 	}
 `;
 
 export const Div_Quote = styled.div`
-	margin-top: auto;
 	margin-bottom: 0.5ch;
 	display: flex;
 	position: relative;
