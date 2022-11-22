@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// main container
+/* main container */
 export const Div_Carousel = styled.div`
 	background-color: var(--red);
 	padding-bottom: 1.5rem;
@@ -27,7 +27,7 @@ export const Div_Carousel = styled.div`
 	}
 `;
 
-// each image
+/* each image */
 export const Div_ClippedImage = styled.div`
 	pointer-events: none;
 	height: 38rem;

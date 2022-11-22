@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { maxWidth } from "@/styles/globals";
 
-// the container
+/* container */
 export const DIV_ProductContainer = styled.div`
 	${maxWidth()}
 	margin: 0 auto 10rem;
@@ -20,7 +20,7 @@ export const DIV_Product = styled.div`
 	gap: 0.5rem;
 	height: 26rem;
 
-	& > div {
+	& > a {
 		min-height: 0;
 		flex-grow: 1;
 		position: relative;

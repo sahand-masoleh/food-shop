@@ -4,7 +4,8 @@
 		"paths": {
 			"@/assets/*": ["assets/*"],
 			"@/components/*": ["components/*"],
-			"@/styles/*": ["styles/*"]
+			"@/styles/*": ["styles/*"],
+			"@/types/*": ["types/*"]
 		},
 		"target": "ESNext",
 		"lib": ["dom", "dom.iterable", "esnext"],

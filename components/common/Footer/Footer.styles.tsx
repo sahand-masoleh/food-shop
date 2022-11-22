@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { maxWidth } from "@/styles/globals";
 
+/* container */
 export const Div_Footer = styled.div`
 	height: 26rem;
 	background-color: var(--color, var(--yellow));
@@ -9,6 +10,7 @@ export const Div_Footer = styled.div`
 	justify-content: center;
 `;
 
+/* info */
 export const Div_Info = styled.div`
 	${maxWidth()}
 	margin: auto auto;
@@ -22,6 +24,7 @@ export const Div_Info = styled.div`
 		"badge socials socials up";
 	gap: 1rem;
 
+	/* info > badge */
 	& > svg {
 		grid-area: badge;
 		height: inherit;
@@ -29,6 +32,7 @@ export const Div_Info = styled.div`
 		color: var(--badge-color, var(--yellow));
 	}
 
+	/* info > up */
 	& > button {
 		grid-area: up;
 		align-self: end;
@@ -37,14 +41,15 @@ export const Div_Info = styled.div`
 		height: 4rem;
 		width: 4rem;
 		cursor: pointer;
-		color: var(--black);
-		transition: color var(--transition-duration) linear;
+		fill: var(--black);
+		transition: fill var(--transition-duration) linear;
 
 		&:hover {
-			color: var(--white);
+			fill: var(--white);
 		}
 	}
 
+	/* slogan */
 	& > h3 {
 		grid-area: slogan;
 		text-transform: uppercase;
@@ -52,6 +57,7 @@ export const Div_Info = styled.div`
 		font-weight: 600;
 	}
 
+	/* legal */
 	& > .legal {
 		grid-area: legal;
 		display: flex;
@@ -64,6 +70,7 @@ export const Div_Info = styled.div`
 		}
 	}
 
+	/* socials */
 	& > .socials {
 		grid-area: socials;
 		display: flex;

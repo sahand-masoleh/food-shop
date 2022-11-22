@@ -10,7 +10,7 @@ import Strawberry from "@/assets/shapes/strawberry.svg";
 function Intro() {
 	const foods = foodIcons();
 	return (
-		<s.Div_Intro>
+		<s.Div_Intro id="shop">
 			<div className="text-container">
 				<span>Our</span>
 				<Icon SVG={foods.next().value} />

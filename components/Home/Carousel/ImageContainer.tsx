@@ -2,12 +2,9 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { clipIterator } from "./SVGDefs";
 import * as s from "./Carousel.styles";
+import { DBProductable } from "@/types/Product";
 
-export type Hero = {
-	id: number;
-	name: string;
-	hero: string;
-};
+export type Hero = Pick<DBProductable, "id" | "name"> & { hero: string };
 
 interface ImageContainerable {
 	heroes: Hero[];

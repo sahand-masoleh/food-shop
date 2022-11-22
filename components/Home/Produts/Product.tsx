@@ -1,13 +1,11 @@
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import * as s from "./Producs.styles";
+import { DBProductable } from "@/types/Product";
 
-export interface Productable {
-	name: string;
-	cover: string;
-	slices: string;
-}
+export type Productable = Pick<DBProductable, "name" | "cover" | "slices">;
 
 function Product({ name, cover, slices }: Productable) {
 	const [hovered, setHovered] = useState(false);
@@ -18,7 +16,7 @@ function Product({ name, cover, slices }: Productable) {
 
 	return (
 		<s.DIV_Product onMouseEnter={handleHover} onMouseLeave={handleHover}>
-			<div>
+			<Link href={`/products/${name}`}>
 				<Image
 					src={cover}
 					alt={name}
@@ -37,7 +35,7 @@ function Product({ name, cover, slices }: Productable) {
 						/>
 					)}
 				</AnimatePresence>
-			</div>
+			</Link>
 			<span>{name}</span>
 		</s.DIV_Product>
 	);
