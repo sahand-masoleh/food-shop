@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="ionicon"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg8"
+   width="100"
+   height="100"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <path
+     d="M 28.277664,61.722335 H 71.722336"
+     style="fill:none;stroke:currentColor;stroke-width:6.55533;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     id="path3137-6" />
+  <path
+     d="M 28.277664,50 H 71.722336"
+     style="fill:none;stroke:currentColor;stroke-width:6.55533;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     id="path3137" />
+  <path
+     fill="none"
+     stroke="currentColor"
+     stroke-width="32"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     d="M 28.277664,38.277665 H 71.722336"
+     id="path6"
+     style="display:inline;stroke-width:6.55533;stroke-dasharray:none" />
+  <path
+     fill="none"
+     stroke="currentColor"
+     stroke-width="7.69231"
+     stroke-miterlimit="10"
+     d="M 96.49988,49.999999 C 96.49988,24.328192 75.671808,3.5001196 49.999999,3.5001196 24.328191,3.5001196 3.5001196,24.328192 3.5001196,49.999999 3.5001196,75.671808 24.328191,96.49988 49.999999,96.49988 75.671808,96.49988 96.49988,75.671808 96.49988,49.999999 Z"
+     id="path4"
+     style="stroke-width:7.00024;stroke-dasharray:none;paint-order:normal" />
+</svg>

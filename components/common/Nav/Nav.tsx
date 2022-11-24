@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import * as s from "./Nav.styles";
 import SearchIcon from "@/assets/icons/search.svg";
+import Hamburger from "./Hamburger";
 
 function Nav() {
 	const [isSearching, setIsSearching] = useState(false);
@@ -27,7 +28,10 @@ function Nav() {
 				)}
 			</AnimatePresence>
 			<s.Nav>
-				<s.Div_ButtonContainer>
+				<s.Div_ButtonContainer className="hamburger">
+					<Hamburger />
+				</s.Div_ButtonContainer>
+				<s.Div_ButtonContainer className="left">
 					<Link href="/#shop" passHref legacyBehavior>
 						<s.A>shop</s.A>
 					</Link>
@@ -40,9 +44,11 @@ function Nav() {
 					</s.Button> */}
 				</s.Div_ButtonContainer>
 				<s.Logo>the food shop</s.Logo>
-				<s.Div_ButtonContainer right>
+				<s.Div_ButtonContainer className="right">
 					<Link href="/cart" passHref legacyBehavior>
-						<s.A>cart {cart.length}</s.A>
+						<s.A>
+							<span className="label">cart</span> <span>{cart.length}</span>
+						</s.A>
 					</Link>
 				</s.Div_ButtonContainer>
 			</s.Nav>

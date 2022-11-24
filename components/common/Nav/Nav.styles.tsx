@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { vars } from "@/styles/globals";
 
 /* header */
 export const Header = styled.header`
@@ -8,22 +9,30 @@ export const Header = styled.header`
 	z-index: 100;
 `;
 
-/* header > nav */
+/* nav */
 export const Nav = styled.nav`
 	height: 5rem;
 	padding: 0 5rem;
 	display: flex;
 	align-items: center;
+
+	@media screen and (max-width: ${vars.bpTablet}) {
+		padding: 0 1.5rem;
+	}
 `;
 
-/* header > nav > logo */
+/* logo */
 export const Logo = styled.span`
 	text-transform: uppercase;
-	font-size: 1.5rem;
+	font-size: clamp(1rem, 2vw, 1.5rem);
 	font-weight: 500;
+	padding: 0 1ch;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 `;
 
-/* header > nav > button-container */
+/* button containers */
 interface Div_ButtonContainerable {
 	right?: boolean;
 }
@@ -32,15 +41,31 @@ export const Div_ButtonContainer = styled.div<Div_ButtonContainerable>`
 	flex-basis: 0;
 	display: flex;
 	align-items: center;
-	justify-content: ${(props) => (props.right ? "flex-end" : "flex-start")};
 	gap: 0.5rem;
+
+	&.hamburger {
+		display: none;
+		@media screen and (max-width: ${vars.bpTablet}) {
+			display: unset;
+		}
+	}
+
+	&.left {
+		@media screen and (max-width: ${vars.bpTablet}) {
+			display: none;
+		}
+	}
+
+	&.right {
+		justify-content: flex-end;
+	}
 
 	& > :is(a, button):hover {
 		cursor: pointer;
 	}
 `;
 
-/* header > nav > button-container > a */
+/* each link in the header */
 export const A = styled.a`
 	padding: 0.33rem 1.2rem;
 	display: grid;
@@ -50,9 +75,16 @@ export const A = styled.a`
 	font-size: 0.875rem;
 	font-weight: 500;
 	text-transform: uppercase;
-	display: grid;
+	display: flex;
+	gap: 1ch;
 	transition: 250ms linear;
 	transition-property: background-color, color;
+
+	& > span.label {
+		@media screen and (max-width: ${vars.bpTablet}) {
+			display: none;
+		}
+	}
 
 	&:hover {
 		background-color: var(--black);
@@ -60,8 +92,9 @@ export const A = styled.a`
 	}
 `;
 
-/* header > nav > button-container > button */
+/* search button */
 export const Button = styled.button`
+	outline: 5px solid lime;
 	background-color: transparent;
 	border: none;
 	height: 1.5rem;
@@ -69,7 +102,7 @@ export const Button = styled.button`
 	margin-left: 0.5rem;
 `;
 
-/* header > search-field */
+/* search field */
 const SearchField = styled(motion.div)`
 	padding: 0 5rem;
 	box-sizing: content-box;
@@ -121,4 +154,7 @@ export const Div_WIP = styled.div`
 	text-align: center;
 	font-size: 0.66rem;
 	font-weight: 600;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 `;

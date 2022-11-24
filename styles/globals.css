@@ -20,9 +20,10 @@ body {
 	--yellow: #ffd400;
 	--purple: #4f66d0;
 	--max-width: 1280px;
-	--container-padding: 20px;
 	--transition-duration: 0.1s;
 	--outline-width: 0.25rem;
+	--bp-tablet: 768px;
+	--bp-mobile: 480px;
 
 	font-family: var(--font-body);
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { vars } from "@/styles/globals";
 
 /* main container */
 export const Div_Carousel = styled.div`
@@ -31,11 +32,15 @@ export const Div_Carousel = styled.div`
 export const Div_ClippedImage = styled.div`
 	flex-shrink: 0;
 	margin: 0 0.5rem;
-	height: 38rem;
-	width: 38rem;
+	width: clamp(22rem, 44vw, 38rem);
+	aspect-ratio: 1;
 	position: relative;
 	z-index: 1;
 	user-select: none;
+
+	@media screen and (max-width: ${vars.bpTablet}) {
+		width: min(64vw, 30rem);
+	}
 
 	& > a > img {
 		height: 100%;
