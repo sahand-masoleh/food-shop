@@ -5,7 +5,10 @@
 			"@/assets/*": ["assets/*"],
 			"@/components/*": ["components/*"],
 			"@/styles/*": ["styles/*"],
-			"@/types/*": ["types/*"]
+			"@/types/*": ["types/*"],
+			"@/contexts/*": ["contexts/*"],
+			"@/utils/*": ["utils/*"],
+			"@/hooks/*": ["hooks/*"]
 		},
 		"target": "ESNext",
 		"lib": ["dom", "dom.iterable", "esnext"],

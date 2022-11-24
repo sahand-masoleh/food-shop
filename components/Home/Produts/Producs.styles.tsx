@@ -13,6 +13,7 @@ export const DIV_ProductContainer = styled.div`
 	grid-auto-rows: 26rem;
 `;
 
+/* wrapper for each item */
 export const DIV_Product = styled.div`
 	position: relative;
 	display: flex;
@@ -32,10 +33,18 @@ export const DIV_Product = styled.div`
 		object-fit: cover;
 	}
 
-	& > span {
-		text-transform: capitalize;
-		font-size: 1.4rem;
-		font-weight: 600;
+	/* name and price */
+	& > div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1ch;
+
+		& > span.name {
+			font-size: 1.4rem;
+			font-weight: 600;
+			text-transform: capitalize;
+		}
 	}
 `;
 

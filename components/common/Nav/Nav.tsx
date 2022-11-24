@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "@/contexts/CartContext";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import * as s from "./Nav.styles";
@@ -6,6 +7,7 @@ import SearchIcon from "@/assets/icons/search.svg";
 
 function Nav() {
 	const [isSearching, setIsSearching] = useState(false);
+	const { cart } = useContext(CartContext);
 
 	function handleIsSearching() {
 		setIsSearching((prevIsSearching) => !prevIsSearching);
@@ -13,6 +15,8 @@ function Nav() {
 
 	return (
 		<s.Header>
+			{/* TODO: remove WIP */}
+			<s.Div_WIP>this project is incomplete and a work in progress</s.Div_WIP>
 			<AnimatePresence>
 				{isSearching && (
 					<s.M_Div_SearchField>
@@ -30,14 +34,15 @@ function Nav() {
 					<Link href="/about" passHref legacyBehavior>
 						<s.A>about</s.A>
 					</Link>
-					<s.Button onClick={handleIsSearching}>
+					{/* TODO: implement serach */}
+					{/* <s.Button onClick={handleIsSearching}>
 						<SearchIcon />
-					</s.Button>
+					</s.Button> */}
 				</s.Div_ButtonContainer>
 				<s.Logo>the food shop</s.Logo>
 				<s.Div_ButtonContainer right>
 					<Link href="/cart" passHref legacyBehavior>
-						<s.A>cart 0</s.A>
+						<s.A>cart {cart.length}</s.A>
 					</Link>
 				</s.Div_ButtonContainer>
 			</s.Nav>

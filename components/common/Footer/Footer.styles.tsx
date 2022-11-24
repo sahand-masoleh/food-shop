@@ -3,6 +3,7 @@ import { maxWidth } from "@/styles/globals";
 
 /* container */
 export const Div_Footer = styled.div`
+	margin-top: auto;
 	height: 26rem;
 	background-color: var(--color, var(--yellow));
 	display: flex;

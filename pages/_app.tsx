@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/reset.css";
 import Head from "next/head";
 import type { AppProps } from "next/app";
+import { CartContextProvider } from "@/contexts/CartContext";
 import Layout from "components/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -16,9 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="author" content="Sahand Masoleh" />
 				<link rel="icon" href="/favicon.png" />
 			</Head>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<CartContextProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</CartContextProvider>
 		</>
 	);
 }

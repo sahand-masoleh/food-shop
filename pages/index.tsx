@@ -9,8 +9,8 @@ export default Index;
 
 export async function getStaticProps() {
 	const backendURL = process.env.BACKEND_URL;
-	const url = new URL("/api/products/", backendURL);
+	const url = new URL("/api/products/list-all", backendURL);
 	const productsResponse = await fetch(url);
-	const products: Homeable = await productsResponse.json();
+	const products: Homeable["products"] = await productsResponse.json();
 	return { props: { products, backendURL } };
 }

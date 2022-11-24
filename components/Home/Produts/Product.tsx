@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import * as s from "./Producs.styles";
 import { DBProductable } from "@/types/Product";
+import useFormattedPrice from "@/hooks/useFormattedPrice";
+import * as s from "./Producs.styles";
 
-export type Productable = Pick<DBProductable, "name" | "cover" | "slices">;
+export type Productable = Pick<
+	DBProductable,
+	"name" | "cover" | "slices" | "price"
+>;
 
-function Product({ name, cover, slices }: Productable) {
+function Product({ name, cover, slices, price }: Productable) {
 	const [hovered, setHovered] = useState(false);
+	const formattedPrice = useFormattedPrice(price);
 
 	function handleHover() {
 		setHovered((prevHoevered) => !prevHoevered);
@@ -36,7 +41,10 @@ function Product({ name, cover, slices }: Productable) {
 					)}
 				</AnimatePresence>
 			</Link>
-			<span>{name}</span>
+			<div>
+				<span className="name">{name}</span>
+				<span className="price">{formattedPrice}/kg</span>
+			</div>
 		</s.DIV_Product>
 	);
 }

@@ -10,11 +10,6 @@
 	src: url("../assets/fonts/ABCWhyteInktrapVariable-Trial.ttf");
 }
 
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
 body {
 	--font-body: "Whyte";
 	--font-inktrap: "Whyte Inktrap";
@@ -30,4 +25,15 @@ body {
 	--outline-width: 0.25rem;
 
 	font-family: var(--font-body);
+}
+
+#__next {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }

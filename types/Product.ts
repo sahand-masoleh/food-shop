@@ -12,3 +12,5 @@ export interface DBProductable {
 	inventory: number;
 	is_hero: boolean;
 }
+
+// TODO: export default

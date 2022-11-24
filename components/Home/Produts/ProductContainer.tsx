@@ -12,6 +12,7 @@ function ProductContainer({ products }: ProductContainerable) {
 			name={product.name}
 			cover={product.cover}
 			slices={product.slices}
+			price={product.price}
 		/>
 	));
 

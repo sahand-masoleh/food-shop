@@ -11,7 +11,7 @@ type Path = Pick<DBProductable, "name">;
 
 export async function getStaticPaths() {
 	const backendURL = process.env.BACKEND_URL;
-	const url = new URL("/api/products/paths", backendURL);
+	const url = new URL("/api/products/list-paths", backendURL);
 	const response = await fetch(url);
 	const json: Path[] = await response.json();
 	const paths = json.map((path) => ({
@@ -27,7 +27,7 @@ export async function getStaticProps({
 }): Promise<{ props: Foodable }> {
 	const { food } = params;
 	const backendURL = process.env.BACKEND_URL;
-	const url = new URL(`/api/products/${food}`, backendURL);
+	const url = new URL(`/api/products/single/${food}`, backendURL);
 	const response = await fetch(url);
 	const json: Omit<Foodable["product"], "name"> = await response.json();
 	return { props: { product: { name: food, ...json }, backendURL } };
