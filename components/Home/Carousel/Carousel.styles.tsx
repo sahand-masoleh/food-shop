@@ -4,8 +4,9 @@ import { vars } from "@/styles/globals";
 /* main container */
 export const Div_Carousel = styled.div`
 	background-color: var(--red);
-	padding-bottom: 1.5rem;
-	padding-top: 5rem;
+	padding: 5rem 0 1.5rem;
+	// -1.5rem margin to offset the padding on the parent
+	margin: 0 -1.5rem;
 	position: relative;
 	display: flex;
 	overflow-x: auto;

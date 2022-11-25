@@ -21,30 +21,30 @@ function Hamburger() {
 				<path
 					id="top"
 					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+					strokeLinecap="round"
+					strokeLinejoin="round"
 					// d="M 32.622132,39.999635 H 67.377868"
 					d="M 32.622132,50 H 67.377868"
 				/>
 				<path
 					id="middle"
 					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+					strokeLinecap="round"
+					strokeLinejoin="round"
 					d="M 32.622132,50 H 67.377868"
 				/>
 				<path
 					id="bottom"
 					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+					strokeLinecap="round"
+					strokeLinejoin="round"
 					// d="M 32.622132,59.999635 H 67.377868"
 					d="M 32.622132,50 H 67.377868"
 				/>
 				<path
 					fill="none"
 					stroke="currentColor"
-					stroke-miterlimit="10"
+					strokeMiterlimit="10"
 					d="M 96.49988,49.999999 C 96.49988,24.328192 75.671808,3.5001196 49.999999,3.5001196 24.328191,3.5001196 3.5001196,24.328192 3.5001196,49.999999 3.5001196,75.671808 24.328191,96.49988 49.999999,96.49988 75.671808,96.49988 96.49988,75.671808 96.49988,49.999999 Z"
 					id="ring"
 				/>

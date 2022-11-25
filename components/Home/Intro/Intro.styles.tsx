@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { maxWidth } from "@/styles/globals";
+import { maxWidth, vars } from "@/styles/globals";
 
 export const Div_Intro = styled.div`
 	${maxWidth("68rem")}
-	margin: 0 auto 10rem;
-	padding: 10rem 0 0;
+	margin: 0 auto;
 	position: relative;
 
 	& > .text-container {
@@ -14,6 +13,10 @@ export const Div_Intro = styled.div`
 		text-transform: uppercase;
 		text-align: center;
 		line-height: 2ch;
+
+		@media screen and (max-width: ${vars.bpTablet}) {
+			font-size: 1.8rem;
+		}
 
 		& > * {
 			transition: opacity var(--transition-duration) linear;

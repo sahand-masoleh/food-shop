@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { maxWidth } from "@/styles/globals";
+import { maxWidth, vars } from "@/styles/globals";
 
 /* container */
 export const Div_Footer = styled.div`
 	margin-top: auto;
-	height: 26rem;
+	padding: 0 1.5rem;
 	background-color: var(--color, var(--yellow));
 	display: flex;
 	flex-direction: column;
@@ -14,9 +14,9 @@ export const Div_Footer = styled.div`
 /* info */
 export const Div_Info = styled.div`
 	${maxWidth()}
-	margin: auto auto;
+	margin: 5rem auto;
 	width: 100%;
-	height: 16rem;
+	min-height: 16rem;
 	display: grid;
 	grid-template-columns: auto 2fr 1fr auto;
 	grid-template-rows: 1fr auto;
@@ -25,12 +25,24 @@ export const Div_Info = styled.div`
 		"badge socials socials up";
 	gap: 1rem;
 
+	@media screen and (max-width: ${vars.bpTablet}) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: unset;
+		grid-template-areas: "badge badge" "slogan up" "legal socials";
+	}
+
 	/* info > badge */
 	& > svg {
 		grid-area: badge;
-		height: inherit;
+		height: 16rem;
 		padding-right: 5rem;
 		color: var(--badge-color, var(--yellow));
+
+		@media screen and (max-width: ${vars.bpTablet}) {
+			padding-right: unset;
+			place-self: center;
+			height: min(60vw, 16rem);
+		}
 	}
 
 	/* info > up */
@@ -47,6 +59,13 @@ export const Div_Info = styled.div`
 
 		&:hover {
 			fill: var(--white);
+		}
+
+		@media screen and (max-width: ${vars.bpTablet}) {
+			justify-self: end;
+			align-self: center;
+			height: 3rem;
+			width: 3rem;
 		}
 	}
 
@@ -68,6 +87,10 @@ export const Div_Info = styled.div`
 		& > a {
 			text-transform: capitalize;
 			font-size: 1.1rem;
+
+			@media screen and (max-width: ${vars.bpTablet}) {
+				font-size: 1rem;
+			}
 		}
 	}
 
@@ -75,18 +98,30 @@ export const Div_Info = styled.div`
 	& > .socials {
 		grid-area: socials;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 2rem;
+
+		@media screen and (max-width: ${vars.bpTablet}) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1rem;
+		}
 
 		& > a {
 			text-transform: uppercase;
 			font-size: 1.6rem;
+
+			@media screen and (max-width: ${vars.bpTablet}) {
+				font-size: 1rem;
+			}
 		}
 	}
 `;
 
 export const Div_Quote = styled.div`
-	margin-bottom: 0.5ch;
+	//-1.5rem margin to offset the padding on the container
+	margin: 0 -1.5rem 0.5ch;
 	display: flex;
 	position: relative;
 	overflow: hidden;

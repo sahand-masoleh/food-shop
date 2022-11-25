@@ -2,6 +2,7 @@ import Carousel from "./Carousel/Carousel";
 import Intro from "./Intro/Intro";
 import ProductContainer from "./Produts/ProductContainer";
 import { DBProductable } from "@/types/Product";
+import * as s from "./Home.styles";
 
 export interface Homeable {
 	products: (Pick<
@@ -23,7 +24,7 @@ function Home({ products, backendURL }: Homeable) {
 		};
 	});
 	return (
-		<main>
+		<s.Main>
 			<Carousel
 				heroes={productsWithURL
 					.filter((e) => !!e.hero)
@@ -31,7 +32,7 @@ function Home({ products, backendURL }: Homeable) {
 			/>
 			<Intro />
 			<ProductContainer products={productsWithURL} />
-		</main>
+		</s.Main>
 	);
 }
 
