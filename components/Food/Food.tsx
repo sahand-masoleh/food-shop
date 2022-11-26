@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState } from "react";
 // Image from Next must be renamed because the built-in JS Image object is also used
 import NextImage from "next/image";
 import { DBProductable } from "@/types/Product";
@@ -6,6 +6,7 @@ import Plus from "@/assets/icons/plus.svg";
 import Minus from "@/assets/icons/minus.svg";
 import { CartContext, MAX_QTY } from "@/contexts/CartContext";
 import useFormattedPrice from "@/hooks/useFormattedPrice";
+import useGrabScroll from "@/hooks/useGrabScroll";
 import * as s from "./Food.styles";
 
 /* PAGE */
@@ -136,32 +137,12 @@ export default Food;
 
 /* IMAGE CONTAINER for < 1024px */
 
-const EMPTY_IMAGE =
-	"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
 interface ImageContainerable {
 	imageURLs: string[];
 }
 
 function ImageContainer({ imageURLs }: ImageContainerable) {
-	const dragRef = useRef<number>(0);
-	const containerRef = useRef<HTMLDivElement>();
-
-	function handleMouseMove(event: React.DragEvent<HTMLDivElement>) {
-		const { clientX, type } = event;
-		const emptyImage = new Image(0, 0);
-		emptyImage.src = EMPTY_IMAGE;
-
-		event.dataTransfer.setDragImage(emptyImage, 0, 0);
-
-		if (type === "dragstart") {
-			dragRef.current = clientX;
-		} else {
-			const move = clientX - dragRef.current;
-			containerRef.current.scrollBy({ left: move * -1 });
-			dragRef.current = clientX;
-		}
-	}
+	const { handleMouseMove, containerRef } = useGrabScroll();
 
 	const imageMap = imageURLs.map((url) => (
 		<NextImage src={url} alt="TODO" width={480} height={640} />

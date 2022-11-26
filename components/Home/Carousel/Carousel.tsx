@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React from "react";
+import useGrabScroll from "@/hooks/useGrabScroll";
 import * as s from "./Carousel.styles";
 import ImageContainer, { Hero } from "./ImageContainer";
 import SVGDefs from "./SVGDefs";
@@ -11,8 +12,7 @@ interface Carousalable {
 }
 
 function Carousel({ heroes }: Carousalable) {
-	const containerRef = useRef<HTMLDivElement>();
-	const dragRef = useRef<number>(0);
+	const { handleMouseMove, containerRef } = useGrabScroll();
 
 	function handleIntersection(entry: IntersectionObserverEntry) {
 		if (entry.isIntersecting) {
@@ -38,22 +38,6 @@ function Carousel({ heroes }: Carousalable) {
 					left: parentWidth - elementWidth - containerWidth,
 				});
 			}
-		}
-	}
-
-	function handleMouseMove(event: React.DragEvent<HTMLDivElement>) {
-		const { clientX, type } = event;
-		const emptyImage = new Image(0, 0);
-		emptyImage.src = EMPTY_IMAGE;
-
-		event.dataTransfer.setDragImage(emptyImage, 0, 0);
-
-		if (type === "dragstart") {
-			dragRef.current = clientX;
-		} else {
-			const move = clientX - dragRef.current;
-			containerRef.current.scrollBy({ left: move * -1 });
-			dragRef.current = clientX;
 		}
 	}
 
