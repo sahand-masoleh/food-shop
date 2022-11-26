@@ -1,28 +1,48 @@
-import { maxWidth } from "@/styles/globals";
+import { maxWidth, vars } from "@/styles/globals";
 import styled from "styled-components";
 
 export const Main = styled.main`
-	${maxWidth()}
-	margin: 0 auto 10rem;
-	padding-top: 10rem;
-	display: flex;
-	gap: 1.5rem;
+	padding: 0 1.5rem;
+	margin: 7rem 0;
+	color: var(--black);
 
-	/* active image */
-	& > img {
-		height: 56rem;
-		width: 38rem;
-		object-fit: cover;
-		border-radius: 8rem;
+	/* wrapper around the content */
+	& > div {
+		${maxWidth()}
+		margin: 0 auto;
+		display: grid;
+		grid-template-areas:
+			"thumbnails active title"
+			"thumbnails active selector"
+			"thumbnails active description";
+		grid-template-columns: auto 1.2fr 1fr;
+		grid-template-rows: minmax(0, auto) minmax(0, auto) 1fr;
+		gap: 1.5rem;
+
+		@media screen and (max-width: 1024px) {
+			grid-template-areas:
+				"title"
+				"description"
+				"images"
+				"selector";
+			grid-template-columns: unset;
+			grid-template-rows: unset;
+		}
 	}
 `;
 
 /* thumbnail container */
+/* DESKTOP ONLY */
 export const Div_ThumbContainer = styled.div`
+	grid-area: thumbnails;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	flex-shrink: 0;
+
+	@media screen and (max-width: 1024px) {
+		display: none;
+	}
 
 	& > button {
 		background-color: transparent;
@@ -46,24 +66,99 @@ export const Div_ThumbContainer = styled.div`
 	}
 `;
 
-/* details */
-export const Div_Details = styled.div`
+/* active image */
+/* DESKTOP ONLY */
+export const Div_ActiveImage = styled.div`
+	grid-area: active;
+	aspect-ratio: 1/1.5;
+	margin-right: 1.5rem;
+
+	@media screen and (max-width: 1024px) {
+		display: none;
+	}
+
+	& > img {
+		height: 100%;
+		object-fit: cover;
+		border-radius: 8rem;
+	}
+`;
+
+/* image container */
+/* < 1024px ONLY */
+export const Div_ImageContainer = styled.div`
+	grid-area: images;
 	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	margin-left: 2rem;
-	color: var(--black);
-	flex-grow: 1;
+	gap: 1.5rem;
+	overflow-x: scroll;
+	margin: 0 -1.5rem 1.5rem;
+	padding: 0 1.5rem;
+	cursor: grab;
+
+	@media screen and (min-width: 1025px) {
+		display: none;
+	}
+
+	& > img {
+		border-radius: 2rem;
+		object-fit: cover;
+		aspect-ratio: 5/6;
+		height: 34rem;
+		flex-grow: 1;
+		max-width: 90%;
+	}
+
+	// Hide scrollbar
+	// Chrome, Safari and Opera
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	& {
+		-ms-overflow-style: none; // IE and Edge
+		scrollbar-width: none; // Firefox
+	}
+
+	// each set of images (ImageContainer)
+	& > div {
+		display: flex;
+	}
+`;
+
+/* type and title */
+export const Div_Title = styled.div`
+	grid-area: "title";
+
+	// TODO: background color
+	& > span {
+		display: block;
+		width: min-content;
+		text-transform: uppercase;
+		background-color: var(--green);
+		padding: 0.5ch 2ch;
+		border-radius: 2rem;
+		margin-bottom: 1ch;
+	}
 
 	& > h2 {
 		text-transform: capitalize;
 		font-family: var(--font-inktrap);
 		font-size: 3rem;
 		font-weight: unset;
-		margin-bottom: 1rem;
-	}
 
-	/* quantity selector */
+		@media screen and (max-width: ${vars.bpMobile}) {
+			font-size: 2rem;
+		}
+	}
+`;
+
+/* quantity selector */
+export const Div_QuantitySelector = styled.div`
+	grid-area: selector;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	/* buttons and indicator */
 	& > div {
 		display: flex;
 		align-items: center;
@@ -127,9 +222,22 @@ export const Div_Details = styled.div`
 			color: var(--black);
 		}
 	}
+`;
 
-	/* description */
+/* description */
+export const Div_Description = styled.div`
+	grid-area: description;
+
 	& > p {
 		font-size: 1.2rem;
+	}
+
+	& > a {
+		font-size: 0.8rem;
+		opacity: 0.5;
+	}
+
+	@media screen and (max-width: 1024px) {
+		margin-bottom: 1.5rem;
 	}
 `;

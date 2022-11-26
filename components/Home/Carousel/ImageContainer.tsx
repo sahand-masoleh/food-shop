@@ -7,7 +7,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { clipIterator } from "./SVGDefs";
 import * as s from "./Carousel.styles";
 import { DBProductable } from "@/types/Product";

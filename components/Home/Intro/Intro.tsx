@@ -5,7 +5,6 @@ import foodIcons, { Icon } from "@/components/common/FoodIcons";
 // import Reforestation from "@/assets/shapes/reforestation.svg";
 // import Hand from "@/assets/icons/hand.svg";
 // import Hit from "@/assets/icons/hit.svg";
-import Strawberry from "@/assets/shapes/strawberry.svg";
 
 function Intro() {
 	const foods = foodIcons();

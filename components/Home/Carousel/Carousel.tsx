@@ -62,7 +62,7 @@ function Carousel({ heroes }: Carousalable) {
 			ref={containerRef}
 			onDragStart={handleMouseMove}
 			onDragOver={handleMouseMove}
-			draggable={"true"}
+			draggable={true}
 		>
 			<ImageContainer
 				heroes={heroes}

@@ -15,7 +15,7 @@ function useValue() {
 	useEffect(() => {
 		if (firstRender.current === false) {
 			const prevCart = window.localStorage.getItem("cart");
-			/* TODO: validate prevCart */
+			// TODO: validate prevCart
 			if (prevCart) {
 				try {
 					const parsedCart = JSON.parse(prevCart);

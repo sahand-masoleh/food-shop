@@ -17,6 +17,7 @@ function Cart() {
 	/* extract IDs for SWR */
 	const cartIds = cart.map((e) => e.id);
 	/* SWR, functions are defined below */
+	// TODO: handle errors
 	const { data, error } = useSWR(
 		() => key(cartIds),
 		() => fetcher(cartIds)
