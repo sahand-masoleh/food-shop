@@ -58,23 +58,23 @@ function Cart() {
 
 	return (
 		<s.Main>
-			<h3>
-				{cart.length} {cart.length === 1 ? "item" : "items"} in cart
-			</h3>
-			<s.Table>
-				<thead>
-					<tr>
-						<th scope="column">item</th>
-						<th scope="column">price</th>
-						<th scope="column">qty</th>
-						<th scope="column">subtotal</th>
-					</tr>
-				</thead>
-				<tbody>{rowMap}</tbody>
-			</s.Table>
 			<div>
-				<span>total: </span>
-				<span>{formattedTotal}</span>
+				<h3>
+					{cart.length} {cart.length === 1 ? "item" : "items"} in cart
+				</h3>
+				<s.Table>
+					<div className="row header">
+						<span>item</span>
+						<span>price</span>
+						<span>qty</span>
+						<span className="subtotal">subtotal</span>
+					</div>
+					{rowMap}
+				</s.Table>
+				<div className="total">
+					<span>total: </span>
+					<span>{formattedTotal}</span>
+				</div>
 			</div>
 		</s.Main>
 	);
