@@ -6,7 +6,7 @@ import { vars } from "@/styles/globals";
 export const Header = styled.header`
 	position: absolute;
 	width: 100%;
-	z-index: 100;
+	z-index: 200;
 `;
 
 /* nav */
@@ -65,7 +65,7 @@ export const Div_ButtonContainer = styled.div<Div_ButtonContainerable>`
 	}
 `;
 
-/* each link in the header */
+/* each link button in the header */
 export const A = styled.a`
 	padding: 0.33rem 1.2rem;
 	display: grid;

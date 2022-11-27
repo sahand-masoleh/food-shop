@@ -8,7 +8,16 @@ import Hamburger from "./Hamburger";
 
 function Nav() {
 	const [isSearching, setIsSearching] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const { cart } = useContext(CartContext);
+
+	function handleOpen(bool?: boolean) {
+		if (bool !== undefined) {
+			setIsOpen(bool);
+		} else {
+			setIsOpen((prevOpen) => !prevOpen);
+		}
+	}
 
 	function handleIsSearching() {
 		setIsSearching((prevIsSearching) => !prevIsSearching);
@@ -29,7 +38,7 @@ function Nav() {
 			</AnimatePresence>
 			<s.Nav>
 				<s.Div_ButtonContainer className="hamburger">
-					<Hamburger />
+					<Hamburger handleOpen={handleOpen} isOpen={isOpen} />
 				</s.Div_ButtonContainer>
 				<s.Div_ButtonContainer className="left">
 					<Link href="/#shop" passHref legacyBehavior>
@@ -43,7 +52,11 @@ function Nav() {
 						<SearchIcon />
 					</s.Button> */}
 				</s.Div_ButtonContainer>
-				<s.Logo>the food shop</s.Logo>
+				<s.Logo>
+					<Link onClick={() => handleOpen(false)} href="/">
+						the food shop
+					</Link>
+				</s.Logo>
 				<s.Div_ButtonContainer className="right">
 					<Link href="/cart" passHref legacyBehavior>
 						<s.A>

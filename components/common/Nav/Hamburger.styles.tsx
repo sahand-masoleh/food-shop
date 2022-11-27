@@ -7,6 +7,7 @@ export const Button = styled.button`
 	place-content: center;
 	background-color: transparent;
 	border: none;
+	z-index: 100;
 `;
 
 export const Hamburger = styled.svg`
