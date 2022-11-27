@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import Link from "next/link";
 import useSWR from "swr";
 import { fetcher, key } from "./swrFunctions";
 import { CartContext } from "@/contexts/CartContext";
@@ -62,19 +63,30 @@ function Cart() {
 				<h3>
 					{cart.length} {cart.length === 1 ? "item" : "items"} in cart
 				</h3>
-				<s.Table>
-					<div className="row header">
-						<span className="item">item</span>
-						<span className="price">price</span>
-						<span className="qty">qty</span>
-						<span className="subtotal">subtotal</span>
-					</div>
-					{rowMap}
-				</s.Table>
-				<div className="total">
-					<span>total: </span>
-					<span>{formattedTotal}</span>
-				</div>
+				{cart.length > 0 ? (
+					<>
+						<s.Table>
+							<div className="row header">
+								<span className="item">item</span>
+								<span className="price">price</span>
+								<span className="qty">qty</span>
+								<span className="subtotal">subtotal</span>
+							</div>
+							{rowMap}
+						</s.Table>
+						<div className="total">
+							<span>total: </span>
+							<span>{formattedTotal}</span>
+						</div>
+					</>
+				) : (
+					<>
+						<h1>Oh no! Cart is empty...</h1>
+						<Link href="/#shop" passHref legacyBehavior>
+							<s.A black>see all products</s.A>
+						</Link>
+					</>
+				)}
 			</div>
 		</s.Main>
 	);

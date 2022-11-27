@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { vars } from "@/styles/globals";
+import { A_LinkButton } from "@/styles/common.styles";
 
 /* header */
 export const Header = styled.header`
@@ -66,31 +67,7 @@ export const Div_ButtonContainer = styled.div<Div_ButtonContainerable>`
 `;
 
 /* each link button in the header */
-export const A = styled.a`
-	padding: 0.33rem 1.2rem;
-	display: grid;
-	place-items: center;
-	border-radius: 2rem;
-	border: 2px solid var(--black);
-	font-size: 0.875rem;
-	font-weight: 500;
-	text-transform: uppercase;
-	display: flex;
-	gap: 1ch;
-	transition: 250ms linear;
-	transition-property: background-color, color;
-
-	& > span.label {
-		@media screen and (max-width: ${vars.bpTablet}) {
-			display: none;
-		}
-	}
-
-	&:hover {
-		background-color: var(--black);
-		color: var(--white);
-	}
-`;
+export const A = A_LinkButton;
 
 /* search button */
 export const Button = styled.button`

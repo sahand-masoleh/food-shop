@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { maxWidth, vars } from "@/styles/globals";
+import { A_LinkButton } from "@/styles/common.styles";
 
 export const Main = styled.main`
 	padding: 7rem 1.5rem 10rem;
@@ -9,11 +10,23 @@ export const Main = styled.main`
 		${maxWidth()};
 		margin: 0 auto;
 
+		/* cart empty message */
+		& > h1 {
+			font-family: var(--font-inktrap);
+			font-size: 3rem;
+			text-align: center;
+			margin: 5rem 0 5rem;
+		}
+
+		/* cart empty see products button */
+		// defined separately
+
 		/* itemts in cart */
 		& > h3 {
 			font-size: 1.8rem;
 			font-weight: 600;
-			margin-bottom: 1rem;
+			padding-bottom: 1rem;
+			border-bottom: 0.2rem solid var(--black);
 
 			@media screen and (max-width: ${vars.bpTablet}) {
 				font-size: 1.2rem;
@@ -41,13 +54,18 @@ export const Main = styled.main`
 	}
 `;
 
-export const Table = styled.div`
-	border-top: 0.2rem solid var(--black);
+/* empty card see products button */
+export const A = styled(A_LinkButton)`
+	max-width: 20ch;
+	margin: 0 auto;
+`;
 
+export const Table = styled.div`
 	& > div {
 		border-bottom: 1px solid var(--black);
 	}
 
+	/* each row */
 	& > .row {
 		display: grid;
 		grid-template-columns: min-content auto 8rem 12rem 8rem;
@@ -60,7 +78,7 @@ export const Table = styled.div`
 			grid-template-areas:
 				"item item delete"
 				"qty price subtotal";
-			padding: 1rem;
+			padding: 1rem 0;
 
 			&:not(:first-child) {
 				gap: 1rem;
