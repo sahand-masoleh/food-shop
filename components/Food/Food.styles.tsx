@@ -19,7 +19,7 @@ export const Main = styled.main`
 		grid-template-rows: minmax(0, auto) minmax(0, auto) 1fr;
 		gap: 1.5rem;
 
-		@media screen and (max-width: 1024px) {
+		@media screen and (max-width: ${vars.bpCRT}) {
 			grid-template-areas:
 				"title"
 				"description"
@@ -40,7 +40,7 @@ export const Div_ThumbContainer = styled.div`
 	gap: 1rem;
 	flex-shrink: 0;
 
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: ${vars.bpCRT}) {
 		display: none;
 	}
 
@@ -73,7 +73,7 @@ export const Div_ActiveImage = styled.div`
 	aspect-ratio: 1/1.5;
 	margin-right: 1.5rem;
 
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: ${vars.bpCRT}) {
 		display: none;
 	}
 
@@ -237,7 +237,7 @@ export const Div_Description = styled.div`
 		opacity: 0.5;
 	}
 
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: ${vars.bpCRT}) {
 		margin-bottom: 1.5rem;
 	}
 `;

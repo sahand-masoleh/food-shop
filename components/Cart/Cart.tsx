@@ -64,9 +64,9 @@ function Cart() {
 				</h3>
 				<s.Table>
 					<div className="row header">
-						<span>item</span>
-						<span>price</span>
-						<span>qty</span>
+						<span className="item">item</span>
+						<span className="price">price</span>
+						<span className="qty">qty</span>
 						<span className="subtotal">subtotal</span>
 					</div>
 					{rowMap}

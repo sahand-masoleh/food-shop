@@ -5,6 +5,7 @@ export const maxWidth = (width?: string) => css`
 `;
 
 export const vars = {
+	bpCRT: "1024px",
 	bpTablet: "768px",
 	bpMobile: "480px",
 };

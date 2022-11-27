@@ -34,10 +34,10 @@ function Row({
 
 	return (
 		<div className="row">
+			<s.Button className="delete" onClick={deleteItem}>
+				<Delete />
+			</s.Button>
 			<div className="item">
-				<s.Button onClick={deleteItem}>
-					<Delete />
-				</s.Button>
 				<Image
 					src={new URL(cover, BACKEND_URL).toString()}
 					alt={name}
@@ -48,7 +48,7 @@ function Row({
 			</div>
 			<div className="price">{formattedPrice}</div>
 			<div className="qty">
-				<div>
+				<div className="qty">
 					<s.Button onClick={addOne} disabled={quantity >= MAX_QTY}>
 						<Plus />
 					</s.Button>
@@ -58,7 +58,7 @@ function Row({
 					</s.Button>
 				</div>
 			</div>
-			<div className="price subtotal">{formattedSubTotal}</div>
+			<div className="subtotal">{formattedSubTotal}</div>
 		</div>
 	);
 }
