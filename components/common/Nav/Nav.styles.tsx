@@ -144,17 +144,3 @@ export const M_Div_SearchField = ({ children }: M_Div_SearchFieldable) => {
 		</SearchField>
 	);
 };
-
-export const Div_WIP = styled.div`
-	position: absolute;
-	inset: 0 0 auto;
-	background-color: var(--red);
-	color: var(--white);
-	text-transform: uppercase;
-	text-align: center;
-	font-size: 0.66rem;
-	font-weight: 600;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-`;

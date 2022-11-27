@@ -25,8 +25,6 @@ function Nav() {
 
 	return (
 		<s.Header>
-			{/* TODO: remove WIP */}
-			<s.Div_WIP>this project is incomplete and a work in progress</s.Div_WIP>
 			<AnimatePresence>
 				{isSearching && (
 					<s.M_Div_SearchField>

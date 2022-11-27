@@ -1,7 +1,3 @@
-import Component from "@/components/Cart/Cart";
-
-function Cart() {
-	return <Component />;
-}
+import Cart from "@/components/Cart/Cart";
 
 export default Cart;

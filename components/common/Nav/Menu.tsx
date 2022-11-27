@@ -58,8 +58,8 @@ function Menu({ isOpen, handleOpen }: Menuable) {
 							<Link onClick={() => handleOpen(false)} href="./attribution">
 								attribution
 							</Link>
-							<Link onClick={() => handleOpen(false)} href="./about">
-								about
+							<Link onClick={() => handleOpen(false)} href="./disclaimer">
+								disclaimer
 							</Link>
 						</div>
 					</s.M_Div_Menu>
