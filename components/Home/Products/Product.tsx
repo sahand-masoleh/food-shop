@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { DBProductable } from "@/types/Product";
 import useFormattedPrice from "@/hooks/useFormattedPrice";
-import * as s from "./Producs.styles";
+import * as s from "./Product.styles";
 
 export type Productable = Pick<
 	DBProductable,

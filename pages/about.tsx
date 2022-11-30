@@ -8,8 +8,8 @@ function About() {
 				<p>
 					My name is Sahand and I am a web developer. I have created this
 					website as a non-1:1 clone of{" "}
-					<a href="https://store.figma.com" target="_blank">
-						Figma's merch store
+					<a href="https://store.figma.com" target="_blank" rel="noreferrer">
+						Figma&apos;s merch store
 					</a>{" "}
 					to demonstrate my skills for any potential employer. This website is{" "}
 					<span className="em">100% not real</span> and none of the products
@@ -20,9 +20,10 @@ function About() {
 					The frontend is built using <span className="em">NextJS</span> with{" "}
 					<span className="em">Styled Components</span> and{" "}
 					<span className="em">Framer Motion</span>. There is a small backend
-					server for feeding data to Next's static generation functions and
-					delivering images, for which I used <span className="em">NodeJs</span>{" "}
-					with <span className="em">ExpressJs</span> and{" "}
+					server for feeding data to Next&apos;ss static generation functions
+					and delivering images, for which I used{" "}
+					<span className="em">NodeJs</span> with{" "}
+					<span className="em">ExpressJs</span> and{" "}
 					<span className="em">PostgreSQL</span>. And of course,{" "}
 					<span className="em">TypeScript</span> is used thoughout the app.
 				</p>

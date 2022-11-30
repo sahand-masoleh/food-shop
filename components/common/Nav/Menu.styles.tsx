@@ -34,7 +34,7 @@ interface M_Div_Menuable {
 	children: JSX.Element | JSX.Element[];
 }
 
-export const M_Div_Menu = forwardRef(
+const M_Div_Menu = forwardRef(
 	({ children }: M_Div_Menuable, ref: ForwardedRef<HTMLDivElement>) => {
 		return (
 			<Menu
@@ -51,3 +51,6 @@ export const M_Div_Menu = forwardRef(
 		);
 	}
 );
+// will not build without displayName
+M_Div_Menu.displayName = "M_Div_Menu";
+export { M_Div_Menu };

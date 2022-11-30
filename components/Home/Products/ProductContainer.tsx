@@ -1,5 +1,5 @@
 import Product, { Productable } from "./Product";
-import * as s from "./Producs.styles";
+import * as s from "./Product.styles";
 
 interface ProductContainerable {
 	products: (Productable & { id: number })[];

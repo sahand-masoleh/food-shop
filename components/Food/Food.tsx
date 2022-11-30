@@ -124,7 +124,7 @@ function Food({ product, backendURL }: Foodable) {
 				</s.Div_QuantitySelector>
 				<s.Div_Description>
 					<p>{description}</p>
-					<a href={source} target="_blank">
+					<a href={source} target="_blank" rel="noreferrer">
 						source {source}
 					</a>
 				</s.Div_Description>
@@ -144,8 +144,8 @@ interface ImageContainerable {
 function ImageContainer({ imageURLs }: ImageContainerable) {
 	const { handleMouseMove, containerRef } = useGrabScroll();
 
-	const imageMap = imageURLs.map((url) => (
-		<NextImage src={url} alt="TODO" width={480} height={640} />
+	const imageMap = imageURLs.map((url, i) => (
+		<NextImage key={i} src={url} alt="TODO" width={480} height={640} />
 	));
 
 	return (

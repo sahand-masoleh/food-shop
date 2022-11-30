@@ -80,9 +80,9 @@ function ImageWrapper({
 	handleIntersection,
 }: ImageWrapperable) {
 	/* intersection observer is stored in a ref*/
-	const observer = end && useRef<IntersectionObserver>();
+	const observer = useRef<IntersectionObserver>();
 	/* the ref holding the observee */
-	const ref = end && useRef<HTMLDivElement>();
+	const ref = useRef<HTMLDivElement>();
 
 	useEffect(() => {
 		/* on first mount, instantiate the observer */

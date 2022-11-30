@@ -230,6 +230,10 @@ export const Div_Description = styled.div`
 
 	& > p {
 		font-size: 1.2rem;
+
+		@media screen and (max-width: ${vars.bpMobile}) {
+			font-size: 1rem;
+		}
 	}
 
 	& > a {

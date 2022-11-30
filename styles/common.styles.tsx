@@ -13,7 +13,7 @@ export const Main = styled.main`
 			margin-bottom: 1ch;
 			font-size: 3rem;
 
-			@media screen and (max-width: ${vars.bpTablet}) {
+			@media screen and (max-width: ${vars.bpMobile}) {
 				font-size: 2rem;
 			}
 		}
@@ -21,11 +21,19 @@ export const Main = styled.main`
 		& > h2 {
 			font-size: 2rem;
 			margin-bottom: 1ch;
+
+			@media screen and (max-width: ${vars.bpMobile}) {
+				font-size: 1.2rem;
+			}
 		}
 
 		& > p {
 			font-size: 1.2rem;
 			margin-bottom: 1ch;
+
+			@media screen and (max-width: ${vars.bpTablet}) {
+				font-size: 1rem;
+			}
 		}
 
 		& > ul > li {
