@@ -8,7 +8,8 @@
 			"@/types/*": ["types/*"],
 			"@/contexts/*": ["contexts/*"],
 			"@/utils/*": ["utils/*"],
-			"@/hooks/*": ["hooks/*"]
+			"@/hooks/*": ["hooks/*"],
+			"@/db/*": ["db/*"]
 		},
 		"target": "ESNext",
 		"lib": ["dom", "dom.iterable", "esnext"],

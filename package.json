@@ -11,6 +11,7 @@
 	"dependencies": {
 		"@svgr/webpack": "^6.5.1",
 		"@types/node": "18.11.9",
+		"@types/pg": "^8.6.5",
 		"@types/react": "18.0.25",
 		"@types/react-dom": "18.0.8",
 		"@types/styled-components": "^5.1.26",
@@ -19,6 +20,7 @@
 		"eslint-config-next": "13.0.2",
 		"framer-motion": "^7.6.5",
 		"next": "13.0.2",
+		"pg": "^8.8.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"styled-components": "^5.3.6",
