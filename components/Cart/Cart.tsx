@@ -59,35 +59,41 @@ function Cart() {
 
 	return (
 		<s.Main>
-			<div>
-				<h3>
-					{cart.length} {cart.length === 1 ? "item" : "items"} in cart
-				</h3>
-				{cart.length > 0 ? (
-					<>
-						<s.Table>
-							<div className="row header">
-								<span className="item">item</span>
-								<span className="price">price</span>
-								<span className="qty">qty</span>
-								<span className="subtotal">subtotal</span>
+			{data ? (
+				<div>
+					<h3>
+						{cart.length} {cart.length === 1 ? "item" : "items"} in cart
+					</h3>
+					{cart.length > 0 ? (
+						<>
+							<s.Table>
+								<div className="row header">
+									<span className="item">item</span>
+									<span className="price">price</span>
+									<span className="qty">qty</span>
+									<span className="subtotal">subtotal</span>
+								</div>
+								{rowMap}
+							</s.Table>
+							<div className="total">
+								<span>total: </span>
+								<span>{formattedTotal}</span>
 							</div>
-							{rowMap}
-						</s.Table>
-						<div className="total">
-							<span>total: </span>
-							<span>{formattedTotal}</span>
-						</div>
-					</>
-				) : (
-					<>
-						<h1>Oh no! Cart is empty...</h1>
-						<Link href="/#shop" passHref legacyBehavior>
-							<s.A black>see all products</s.A>
-						</Link>
-					</>
-				)}
-			</div>
+						</>
+					) : (
+						<>
+							<h1>Oh no! Cart is empty...</h1>
+							<Link href="/#shop" passHref legacyBehavior>
+								<s.A black>see all products</s.A>
+							</Link>
+						</>
+					)}
+				</div>
+			) : error ? (
+				<div>
+					<p>Something went wrong :(</p>
+				</div>
+			) : null}
 		</s.Main>
 	);
 }

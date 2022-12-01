@@ -27,7 +27,6 @@ export async function getStaticProps({
 	params: { food: string };
 }): Promise<{ props: Foodable }> {
 	const { food } = params;
-	const backendURL = process.env.BACKEND_URL;
 	const response: QueryResult<Foodable["product"]> = await query(
 		`
 		SELECT id, type, price, description, source, noface, images
@@ -37,5 +36,5 @@ export async function getStaticProps({
 		[food]
 	);
 	const details = response.rows[0];
-	return { props: { product: { name: food, ...details }, backendURL } };
+	return { props: { product: { name: food, ...details } } };
 }

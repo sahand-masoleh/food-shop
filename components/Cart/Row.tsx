@@ -6,7 +6,7 @@ import Plus from "@/assets/icons/plus.svg";
 import Minus from "@/assets/icons/minus.svg";
 import Delete from "@/assets/icons/delete.svg";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const CDN = process.env.NEXT_PUBLIC_CDN;
 
 /* EACH ITEM AS A ROW */
 
@@ -39,7 +39,7 @@ function Row({
 			</s.Button>
 			<div className="item">
 				<Image
-					src={new URL(cover, BACKEND_URL).toString()}
+					src={new URL(cover, CDN).toString()}
 					alt={name}
 					width={100}
 					height={100}

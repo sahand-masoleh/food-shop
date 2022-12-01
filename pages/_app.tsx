@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					content="A fuits and vegetables shop built using Next.js"
 				/>
 				<meta name="author" content="Sahand Masoleh" />
-				<link rel="icon" href="/favicon.png" />
+				<link rel="icon" href="/favicon.svg" />
 			</Head>
 			<CartContextProvider>
 				<Layout>

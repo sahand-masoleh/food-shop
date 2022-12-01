@@ -1,5 +1,5 @@
 import { DBProductable } from "@/types/Product";
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const BACKEND_URL = "http://localhost:4000";
 
 type CartItem = Pick<DBProductable, "id" | "name" | "price" | "cover">;
 
@@ -10,12 +10,15 @@ export function key(cartIds: number[]) {
 }
 
 export async function fetcher(cartIds: number[]) {
-	const url = new URL("api/products/list-cart", BACKEND_URL);
+	let url = "api/cart";
 	const searchParams = new URLSearchParams();
 	for (let id of cartIds) {
 		searchParams.append("id", id.toString());
 	}
-	url.search = searchParams.toString();
+	const searchParamsString = searchParams.toString();
+	if (searchParamsString) {
+		url += `?${searchParamsString}`;
+	}
 	const response = await fetch(url);
 	const json: CartItem[] = await response.json();
 	return json;

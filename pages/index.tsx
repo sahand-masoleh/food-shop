@@ -10,7 +10,6 @@ function Index(props: Homeable) {
 export default Index;
 
 export async function getStaticProps() {
-	const backendURL = process.env.BACKEND_URL;
 	try {
 		const productsResponse: QueryResult<Homeable["products"]> = await query(
 			`
@@ -23,7 +22,7 @@ export async function getStaticProps() {
 			`
 		);
 		const products = productsResponse.rows;
-		return { props: { products, backendURL } };
+		return { props: { products } };
 	} catch (error) {
 		console.log(error);
 	}

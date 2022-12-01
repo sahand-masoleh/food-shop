@@ -9,6 +9,8 @@ import useFormattedPrice from "@/hooks/useFormattedPrice";
 import useGrabScroll from "@/hooks/useGrabScroll";
 import * as s from "./Food.styles";
 
+const CDN = process.env.NEXT_PUBLIC_CDN;
+
 /* PAGE */
 // the page consists of one wrapper component
 // the content inside changed based on view width
@@ -27,10 +29,9 @@ type Food = Pick<
 
 export interface Foodable {
 	product: Food;
-	backendURL: string;
 }
 
-function Food({ product, backendURL }: Foodable) {
+function Food({ product }: Foodable) {
 	const { id, name, type, price, description, source, noface, images } =
 		product;
 	/* active image */
@@ -71,7 +72,7 @@ function Food({ product, backendURL }: Foodable) {
 			onClick={() => setActive(i)}
 		>
 			<NextImage
-				src={new URL(e, backendURL).toString()}
+				src={new URL(e, CDN).toString()}
 				alt={`${name} thumbnail`}
 				height={100}
 				width={100}
@@ -86,7 +87,7 @@ function Food({ product, backendURL }: Foodable) {
 				<s.Div_ThumbContainer>{thumbMap}</s.Div_ThumbContainer>
 				<s.Div_ActiveImage>
 					<NextImage
-						src={new URL([noface, ...images][active], backendURL).toString()}
+						src={new URL([noface, ...images][active], CDN).toString()}
 						alt={name}
 						width={1000}
 						height={1500}
@@ -95,9 +96,7 @@ function Food({ product, backendURL }: Foodable) {
 
 				{/* only on < 1024px */}
 				<ImageContainer
-					imageURLs={[noface, ...images].map((e) =>
-						new URL(e, backendURL).toString()
-					)}
+					imageURLs={[noface, ...images].map((e) => new URL(e, CDN).toString())}
 				/>
 
 				<s.Div_Title>

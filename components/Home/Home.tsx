@@ -4,6 +4,8 @@ import ProductContainer from "./Products/ProductContainer";
 import { DBProductable } from "@/types/Product";
 import * as s from "./Home.styles";
 
+const CDN = process.env.NEXT_PUBLIC_CDN;
+
 export interface Homeable {
 	products: (Pick<
 		DBProductable,
@@ -11,16 +13,15 @@ export interface Homeable {
 	> & {
 		hero: string | null;
 	})[];
-	backendURL: string;
 }
 
-function Home({ products, backendURL }: Homeable) {
+function Home({ products }: Homeable) {
 	const productsWithURL = products.map((product) => {
 		return {
 			...product,
-			cover: new URL(product.cover, backendURL).toString(),
-			slices: new URL(product.slices, backendURL).toString(),
-			hero: product.hero && new URL(product.hero, backendURL).toString(),
+			cover: new URL(product.cover, CDN).toString(),
+			slices: new URL(product.slices, CDN).toString(),
+			hero: product.hero && new URL(product.hero, CDN).toString(),
 		};
 	});
 	return (
