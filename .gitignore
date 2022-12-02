@@ -36,3 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 /demo/*
+/scripts/
+food-shop.zip

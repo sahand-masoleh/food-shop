@@ -56,13 +56,10 @@ function Info({ badgeColor }: Infoable) {
 function Socials() {
 	return (
 		<div className="socials">
-			<Link
-				href="https://github.com/sahand-masoleh/food-shop-frontend"
-				target="_blank"
-			>
+			<Link href="https://github.com/sahand-masoleh/food-shop" target="_blank">
 				github
 			</Link>
-			<Link href="https://sahand-masoleh.github.io" target="_blank">
+			<Link href="https://sahandmasoleh.com" target="_blank">
 				portfolio
 			</Link>
 			<Link href="https://twitter.com/SahandMasoleh" target="_blank">

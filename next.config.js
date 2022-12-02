@@ -15,7 +15,7 @@ const nextConfig = {
 		return config;
 	},
 	images: {
-		domains: ["localhost"],
+		domains: ["localhost", "media-server.sahandmasoleh.com"],
 	},
 };
 

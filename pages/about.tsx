@@ -4,32 +4,29 @@ function About() {
 	return (
 		<s.Main>
 			<div>
-				<h1>Zdravo! Welcome to The Fruit Shop!</h1>
+				<h1>Zdravo! Welcome to The Food Shop!</h1>
 				<p>
 					My name is Sahand and I am a web developer. I have created this
-					website as a non-1:1 clone of{" "}
+					website as a liberal clone of{" "}
 					<a href="https://store.figma.com" target="_blank" rel="noreferrer">
 						Figma&apos;s merch store
-					</a>{" "}
-					to demonstrate my skills for any potential employer. This website is{" "}
-					<span className="em">100% not real</span> and none of the products
-					that you see here are actually purchasable.
+					</a>
+					, only to demonstrate my skills to any potential employer. This
+					website is <span className="em">100% not real</span> and none of the
+					products that you see here are actually purchasable.
 				</p>
 				<h2>Technology Stack</h2>
 				<p>
-					The frontend is built using <span className="em">NextJS</span> with{" "}
+					The app is built using <span className="em">NextJS</span> with{" "}
 					<span className="em">Styled Components</span> and{" "}
-					<span className="em">Framer Motion</span>. There is a small backend
-					server for feeding data to Next&apos;ss static generation functions
-					and delivering images, for which I used{" "}
-					<span className="em">NodeJs</span> with{" "}
-					<span className="em">ExpressJs</span> and{" "}
-					<span className="em">PostgreSQL</span>. And of course,{" "}
+					<span className="em">Framer Motion</span>. There is a small{" "}
+					<span className="em">PostgreSQL</span> database from which Next pulls
+					data to generate the pages statically. And of course,{" "}
 					<span className="em">TypeScript</span> is used thoughout the app.
 				</p>
 				<p>
-					All the code for both the frontend and the backend can be seen on the
-					git repo linked in the footer.
+					All of the code is available on a public git repo linked in the
+					footer.
 				</p>
 				<h2>Future Development</h2>
 				<p>

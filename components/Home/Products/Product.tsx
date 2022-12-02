@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";

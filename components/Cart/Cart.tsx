@@ -18,7 +18,6 @@ function Cart() {
 	/* extract IDs for SWR */
 	const cartIds = cart.map((e) => e.id);
 	/* SWR, functions are defined below */
-	// TODO: handle errors
 	const { data, error } = useSWR(
 		() => key(cartIds),
 		() => fetcher(cartIds)
@@ -57,43 +56,51 @@ function Cart() {
 			);
 		});
 
+	if (error) {
+		return (
+			<div>
+				<p>Something went wrong :(</p>
+			</div>
+		);
+	}
+
+	if (!data) {
+		<div>
+			<p>Loading...</p>
+		</div>;
+	}
+
 	return (
 		<s.Main>
-			{data ? (
-				<div>
-					<h3>
-						{cart.length} {cart.length === 1 ? "item" : "items"} in cart
-					</h3>
-					{cart.length > 0 ? (
-						<>
-							<s.Table>
-								<div className="row header">
-									<span className="item">item</span>
-									<span className="price">price</span>
-									<span className="qty">qty</span>
-									<span className="subtotal">subtotal</span>
-								</div>
-								{rowMap}
-							</s.Table>
-							<div className="total">
-								<span>total: </span>
-								<span>{formattedTotal}</span>
+			<div>
+				<h3>
+					{cart.length} {cart.length === 1 ? "item" : "items"} in cart
+				</h3>
+				{cart.length > 0 ? (
+					<>
+						<s.Table>
+							<div className="row header">
+								<span className="item">item</span>
+								<span className="price">price</span>
+								<span className="qty">qty</span>
+								<span className="subtotal">subtotal</span>
 							</div>
-						</>
-					) : (
-						<>
-							<h1>Oh no! Cart is empty...</h1>
-							<Link href="/#shop" passHref legacyBehavior>
-								<s.A black>see all products</s.A>
-							</Link>
-						</>
-					)}
-				</div>
-			) : error ? (
-				<div>
-					<p>Something went wrong :(</p>
-				</div>
-			) : null}
+							{rowMap}
+						</s.Table>
+						<div className="total">
+							<span>total: </span>
+							<span>{formattedTotal}</span>
+						</div>
+					</>
+				) : (
+					<>
+						<h1>Oh no! Cart is empty...</h1>
+						<Link href="/#shop" passHref legacyBehavior>
+							<s.A black>see all products</s.A>
+						</Link>
+					</>
+				)}
+			</div>
 		</s.Main>
 	);
 }
