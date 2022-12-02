@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 // Image from Next must be renamed because the built-in JS Image object is also used
 import NextImage from "next/image";
+import { useRouter } from "next/router";
 import { DBProductable } from "@/types/Product";
 import Plus from "@/assets/icons/plus.svg";
 import Minus from "@/assets/icons/minus.svg";
@@ -40,8 +41,10 @@ function Food({ product }: Foodable) {
 	const [quantity, setQuantity] = useState(1);
 	/* cart context */
 	const { cart, addItem } = useContext(CartContext);
-	/* calculated price in the correct currency format*/
+	/* calculate the price in the correct currency format*/
 	const formattedTotalPrice = useFormattedPrice(price * quantity);
+	/* navigate to cart after add */
+	const router = useRouter();
 
 	/* setting the local quantity */
 	function handleQuantity(num: -1 | 1) {
@@ -62,6 +65,7 @@ function Food({ product }: Foodable) {
 		/* has to be pure to avoid adding twice on strict mode */
 		const prevQuantity = cart.find((e) => e.id === id)?.quantity || 0;
 		addItem(id, prevQuantity + quantity);
+		router.push("/cart");
 	}
 
 	/* only on desktop */

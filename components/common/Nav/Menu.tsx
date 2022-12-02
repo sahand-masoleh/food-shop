@@ -47,18 +47,18 @@ function Menu({ isOpen, handleOpen }: Menuable) {
 				{isOpen && (
 					<s.M_Div_Menu ref={containerRef}>
 						<div className="pages">
-							<Link onClick={() => handleOpen(false)} href="./#shop">
+							<Link onClick={() => handleOpen(false)} href="/#shop">
 								shop
 							</Link>
-							<Link onClick={() => handleOpen(false)} href="./about">
+							<Link onClick={() => handleOpen(false)} href="/about">
 								about
 							</Link>
 						</div>
 						<div className="legal">
-							<Link onClick={() => handleOpen(false)} href="./attribution">
+							<Link onClick={() => handleOpen(false)} href="/attribution">
 								attribution
 							</Link>
-							<Link onClick={() => handleOpen(false)} href="./disclaimer">
+							<Link onClick={() => handleOpen(false)} href="/disclaimer">
 								disclaimer
 							</Link>
 						</div>
