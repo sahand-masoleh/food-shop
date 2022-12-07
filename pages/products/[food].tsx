@@ -11,6 +11,7 @@ export default Food;
 
 type Path = Pick<DBProductable, "name">;
 
+/* get a list of all products to build paths */
 export async function getStaticPaths() {
 	const response: QueryResult<Path> = await query(
 		"SELECT id, name FROM products"
@@ -21,6 +22,7 @@ export async function getStaticPaths() {
 	return { paths, fallback: false };
 }
 
+/* props for each page */
 export async function getStaticProps({
 	params,
 }: {

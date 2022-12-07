@@ -4,9 +4,6 @@ import * as s from "./Carousel.styles";
 import ImageContainer, { Hero } from "./ImageContainer";
 import SVGDefs from "./SVGDefs";
 
-const EMPTY_IMAGE =
-	"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
 interface Carousalable {
 	heroes: Hero[];
 }
@@ -43,6 +40,7 @@ function Carousel({ heroes }: Carousalable) {
 
 	return (
 		<s.Div_Carousel
+			role="listbox"
 			ref={containerRef}
 			onDragStart={handleMouseMove}
 			onDragOver={handleMouseMove}
