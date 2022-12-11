@@ -27,7 +27,8 @@
 		"isolatedModules": true,
 		// "strictNullChecks": true,
 		"noImplicitAny": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"types": ["cypress", "@testing-library/cypress"]
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]

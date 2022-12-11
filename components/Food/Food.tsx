@@ -74,6 +74,7 @@ function Food({ product }: Foodable) {
 			key={i}
 			className={active === i ? "active" : null}
 			onClick={() => setActive(i)}
+			aria-label="thumbnail"
 		>
 			<NextImage
 				src={new URL(e, CDN).toString()}

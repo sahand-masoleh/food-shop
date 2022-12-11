@@ -55,13 +55,17 @@ function ImageContainer({
 		);
 	});
 
-	return <div data-order={order}>{heroesMap}</div>;
+	return (
+		<div data-order={order} data-testid="image-container">
+			{heroesMap}
+		</div>
+	);
 }
 
 export default ImageContainer;
 
 /*
-	EACH Clipped IMAGE
+	EACH CLIPPED IMAGE
 */
 
 interface ImageWrapperable {
@@ -72,7 +76,7 @@ interface ImageWrapperable {
 	handleIntersection?: (entry: IntersectionObserverEntry) => void;
 }
 
-function ImageWrapper({
+export function ImageWrapper({
 	end,
 	frame,
 	name,
@@ -117,6 +121,7 @@ function ImageWrapper({
 					"--clip": `url(#${frame}-clip)`,
 				} as React.CSSProperties
 			}
+			role="option"
 		>
 			<Link href={`/products/${name}`}>
 				<Image src={hero} alt={name} width={640} height={640} />

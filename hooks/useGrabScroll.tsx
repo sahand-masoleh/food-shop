@@ -16,7 +16,7 @@ function useGrabScroll() {
 		const emptyImage = new Image(0, 0);
 		emptyImage.src = EMPTY_IMAGE;
 
-		event.dataTransfer.setDragImage(emptyImage, 0, 0);
+		event.dataTransfer?.setDragImage(emptyImage, 0, 0);
 
 		if (type === "dragstart") {
 			dragRef.current = clientX;
