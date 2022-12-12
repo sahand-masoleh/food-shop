@@ -40,7 +40,7 @@ function Carousel({ heroes }: Carousalable) {
 
 	return (
 		<s.Div_Carousel
-			role="listbox"
+			role="list"
 			ref={containerRef}
 			onDragStart={handleMouseMove}
 			onDragOver={handleMouseMove}

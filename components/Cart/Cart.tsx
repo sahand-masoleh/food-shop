@@ -78,18 +78,22 @@ function Cart() {
 				</h3>
 				{cart.length > 0 ? (
 					<>
-						<s.Table>
-							<div className="row header">
-								<span className="item">item</span>
-								<span className="price">price</span>
-								<span className="qty">qty</span>
-								<span className="subtotal">subtotal</span>
+						<s.Div_Table role="table">
+							<div role="rowgroup">
+								<div className="row header" role="row">
+									<span className="item">item</span>
+									<span className="price">price</span>
+									<span className="qty">qty</span>
+									<span className="subtotal">subtotal</span>
+								</div>
 							</div>
-							{rowMap}
-						</s.Table>
+							<div className="row-group" role="rowgroup">
+								{rowMap}
+							</div>
+						</s.Div_Table>
 						<div className="total">
 							<span>total: </span>
-							<span>{formattedTotal}</span>
+							<span data-testid="total">{formattedTotal}</span>
 						</div>
 					</>
 				) : (

@@ -33,8 +33,8 @@ function Row({
 	const formattedSubTotal = useFormattedPrice(price * quantity);
 
 	return (
-		<div className="row">
-			<s.Button className="delete" onClick={deleteItem}>
+		<div className="row" role="row">
+			<s.Button className="delete" onClick={deleteItem} aria-label="delete">
 				<Delete />
 			</s.Button>
 			<div className="item">
@@ -49,11 +49,21 @@ function Row({
 			<div className="price">{formattedPrice}</div>
 			<div className="qty">
 				<div className="qty">
-					<s.Button onClick={addOne} disabled={quantity >= MAX_QTY}>
+					<s.Button
+						onClick={addOne}
+						disabled={quantity >= MAX_QTY}
+						aria-label="one kilo more"
+						title="one kilo more"
+					>
 						<Plus />
 					</s.Button>
-					<span>{quantity} kg</span>
-					<s.Button onClick={removeOne} disabled={quantity <= 1}>
+					<span aria-label="current quantity">{quantity} kg</span>
+					<s.Button
+						onClick={removeOne}
+						disabled={quantity <= 1}
+						aria-label="one kilo less"
+						title="one kilo less"
+					>
 						<Minus />
 					</s.Button>
 				</div>

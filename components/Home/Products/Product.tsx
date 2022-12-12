@@ -20,7 +20,11 @@ function Product({ name, cover, slices, price }: Productable) {
 	}
 
 	return (
-		<s.DIV_Product onMouseEnter={handleHover} onMouseLeave={handleHover}>
+		<s.ARTICLE_Product
+			onMouseEnter={handleHover}
+			onMouseLeave={handleHover}
+			title={name}
+		>
 			<Link href={`/products/${name}`}>
 				<Image
 					src={cover}
@@ -45,7 +49,7 @@ function Product({ name, cover, slices, price }: Productable) {
 				<span className="name">{name}</span>
 				<span className="price">{formattedPrice}/kg</span>
 			</div>
-		</s.DIV_Product>
+		</s.ARTICLE_Product>
 	);
 }
 

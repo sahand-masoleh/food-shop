@@ -16,7 +16,7 @@ function ProductContainer({ products }: ProductContainerable) {
 		/>
 	));
 
-	return <s.DIV_ProductContainer>{productMap}</s.DIV_ProductContainer>;
+	return <s.SECTION_ProductContainer>{productMap}</s.SECTION_ProductContainer>;
 }
 
 export default ProductContainer;

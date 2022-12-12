@@ -109,6 +109,7 @@ export function ImageWrapper({
 	}
 
 	return (
+		// TODO: remove tab focus
 		<s.Div_ClippedImage
 			className={isHovered ? "hovered" : null}
 			onMouseEnter={() => handleHover(true)}
@@ -121,7 +122,7 @@ export function ImageWrapper({
 					"--clip": `url(#${frame}-clip)`,
 				} as React.CSSProperties
 			}
-			role="option"
+			role="listitem"
 		>
 			<Link href={`/products/${name}`}>
 				<Image src={hero} alt={name} width={640} height={640} />

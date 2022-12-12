@@ -4,7 +4,7 @@ import Image, { ImageProps } from "next/image";
 import { maxWidth, vars } from "@/styles/globals";
 
 /* container */
-export const DIV_ProductContainer = styled.div`
+export const SECTION_ProductContainer = styled.section`
 	${maxWidth()}
 	margin: 0 auto;
 	width: 100%;
@@ -18,7 +18,7 @@ export const DIV_ProductContainer = styled.div`
 `;
 
 /* wrapper for each item */
-export const DIV_Product = styled.div`
+export const ARTICLE_Product = styled.article`
 	position: relative;
 	display: flex;
 	flex-direction: column;

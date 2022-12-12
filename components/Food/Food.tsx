@@ -113,16 +113,20 @@ function Food({ product }: Foodable) {
 						<button
 							onClick={() => handleQuantity(1)}
 							disabled={quantity >= MAX_QTY}
+							aria-label="one kilo more"
 						>
 							<Plus />
 						</button>
-						<span>{quantity} kg</span>
-						<button onClick={() => handleQuantity(-1)} disabled={quantity <= 1}>
+						<span aria-label="current quantity">{quantity} kg</span>
+						<button
+							onClick={() => handleQuantity(-1)}
+							disabled={quantity <= 1}
+							aria-label="one kilo less"
+						>
 							<Minus />
 						</button>
 					</div>
 					<button disabled={!(quantity > 0)} onClick={addItemLocal}>
-						{/* TODO: put formattedPrice in useEffect */}
 						add {formattedTotalPrice}
 					</button>
 				</s.Div_QuantitySelector>

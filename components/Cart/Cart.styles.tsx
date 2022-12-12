@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { maxWidth, vars } from "@/styles/globals";
 import { A_LinkButton } from "@/styles/common.styles";
 
@@ -60,13 +60,10 @@ export const A = styled(A_LinkButton)`
 	margin: 0 auto;
 `;
 
-export const Table = styled.div`
-	& > div {
-		border-bottom: 1px solid var(--black);
-	}
-
+export const Div_Table = styled.div`
 	/* each row */
-	& > .row {
+	& .row {
+		border-bottom: 1px solid var(--black);
 		display: grid;
 		grid-template-columns: min-content auto 8rem 12rem 8rem;
 		grid-template-areas: "delete item price qty subtotal";
@@ -80,7 +77,7 @@ export const Table = styled.div`
 				"qty price subtotal";
 			padding: 1rem 0;
 
-			&:not(:first-child) {
+			&:not(.header) {
 				gap: 1rem;
 			}
 		}
