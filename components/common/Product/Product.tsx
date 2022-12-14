@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { DBProductable } from "@/types/Product";
 import useFormattedPrice from "@/hooks/useFormattedPrice";
 import * as s from "./Product.styles";
@@ -16,7 +15,7 @@ function Product({ name, cover, slices, price }: Productable) {
 	const formattedPrice = useFormattedPrice(price);
 
 	function handleHover() {
-		setHovered((prevHoevered) => !prevHoevered);
+		slices && setHovered((prevHoevered) => !prevHoevered);
 	}
 
 	return (
@@ -26,21 +25,22 @@ function Product({ name, cover, slices, price }: Productable) {
 			title={name}
 		>
 			<Link href={`/products/${name}`}>
-				<Image
-					src={cover}
-					alt={name}
-					width={320}
-					height={480}
-					key={name + "_unhovered"}
-				/>
-				<AnimatePresence mode="wait">
-					{hovered && (
+				<AnimatePresence>
+					{hovered && slices ? (
 						<s.M_Image
 							src={slices}
 							alt={name}
 							width={320}
 							height={480}
 							key={name + "_hovered"}
+						/>
+					) : (
+						<s.M_Image
+							src={cover}
+							alt={name}
+							width={320}
+							height={480}
+							key={name + "_unhovered"}
 						/>
 					)}
 				</AnimatePresence>

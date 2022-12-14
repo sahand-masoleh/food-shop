@@ -1,6 +1,6 @@
 import Carousel from "./Carousel/Carousel";
 import Intro from "./Intro/Intro";
-import ProductContainer from "./Products/ProductContainer";
+import ProductContainer from "@/components/common/Product/ProductContainer";
 import { DBProductable } from "@/types/Product";
 import * as s from "./Home.styles";
 

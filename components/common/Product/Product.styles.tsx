@@ -13,7 +13,7 @@ export const SECTION_ProductContainer = styled.section`
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	justify-content: center;
 	@media screen and (max-width: ${vars.bpTablet}) {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 `;
 
@@ -25,18 +25,13 @@ export const ARTICLE_Product = styled.article`
 	gap: 0.5rem;
 	aspect-ratio: 7/10;
 	max-height: 100%;
+	cursor: pointer;
 
 	& > a {
 		height: 100%;
 		min-height: 0;
 		flex-grow: 1;
 		position: relative;
-	}
-
-	& img {
-		height: 100%;
-		border-radius: 2rem;
-		object-fit: cover;
 	}
 
 	/* name and price */
@@ -57,10 +52,20 @@ export const ARTICLE_Product = styled.article`
 
 export const M_ImageWrapper = styled(motion.div)`
 	position: absolute;
+	border-radius: 2rem;
+	overflow: hidden;
 	inset: 0;
+	outline: 2px solid transparent;
+	transition: outline-color 0.2s linear;
 
 	& > img {
-		outline: 2px solid var(--black);
+		height: 100%;
+		min-width: 100%;
+		object-fit: cover;
+	}
+
+	&:hover {
+		outline-color: var(--black);
 	}
 `;
 

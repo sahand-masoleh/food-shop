@@ -5,10 +5,7 @@ import { DBProductable } from "@/types/Product";
 
 type CartItem = Pick<DBProductable, "id" | "name" | "price" | "cover">;
 
-export default async function handler(
-	req: NextApiRequest,
-	res: NextApiResponse<CartItem[]>
-) {
+async function handler(req: NextApiRequest, res: NextApiResponse<CartItem[]>) {
 	let ids = req.query.id as string | string[];
 
 	/* make sure ids is always an array as single params are not put in arrays by default */
@@ -27,6 +24,9 @@ export default async function handler(
 		);
 		res.json(response.rows);
 	} catch (error) {
+		// TODO: error codes
 		console.log(error);
 	}
 }
+
+export default handler;

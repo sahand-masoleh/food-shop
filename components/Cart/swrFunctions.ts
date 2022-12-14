@@ -1,5 +1,4 @@
 import { DBProductable } from "@/types/Product";
-const BACKEND_URL = "http://localhost:4000";
 
 type CartItem = Pick<DBProductable, "id" | "name" | "price" | "cover">;
 

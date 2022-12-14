@@ -58,16 +58,22 @@ function Cart() {
 
 	if (error) {
 		return (
-			<div>
-				<p>Something went wrong :(</p>
-			</div>
+			<s.Main>
+				<div>
+					<p>Something went wrong :(</p>
+				</div>
+			</s.Main>
 		);
 	}
 
 	if (!data) {
-		<div>
-			<p>Loading...</p>
-		</div>;
+		return (
+			<s.Main>
+				<div>
+					<p>Loading...</p>
+				</div>
+			</s.Main>
+		);
 	}
 
 	return (
