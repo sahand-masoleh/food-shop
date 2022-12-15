@@ -15,7 +15,7 @@ export default QuoteCarousel;
 function QuoteWrapper() {
 	const quote =
 		//prettier-ignore
-		"you should have fruits and vegetables if you want to have a fruitful life you should have fruits and vegetables if you want to have a fruitfull life"
+		"you should have fruits and vegetables if you want to have a fruitful life you should have fruits and vegetables if you want to have a fruitful life"
 		.split(" ");
 	const foods = foodIcons();
 

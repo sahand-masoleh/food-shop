@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
 import * as s from "./SearchBar.styles";
 
 interface Searchable {
-	isSearching: boolean;
 	close: () => void;
 }
 
-function SearchBar({ isSearching, close }: Searchable) {
+function SearchBar({ close }: Searchable) {
 	const [value, setvalue] = useState("");
 	const router = useRouter();
+	const ref = useRef<HTMLInputElement>();
 
 	useEffect(() => {
+		ref.current.focus();
+
+		/* close the bar after route change */
+		/* includes both submit and click on link */
 		router.events.on("routeChangeComplete", () => {
 			close();
-
-			/* manual reload needed if called from /search */
-			if (router.pathname === "/search") {
-				router.reload();
-			}
 		});
 
-		return () => router.events.off("routeChangeComplete", close);
+		return () => {
+			router.events.off("routeChangeComplete", close);
+		};
 	}, []);
 
 	function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
@@ -38,24 +38,17 @@ function SearchBar({ isSearching, close }: Searchable) {
 	}
 
 	return (
-		<AnimatePresence>
-			{isSearching && (
-				<s.M_Div_Field>
-					<form
-						onSubmit={handleSubmit}
-						role="search"
-						aria-label="search this site"
-					>
-						<input
-							type="text"
-							placeholder="Search"
-							onChange={handleInput}
-							value={value}
-						/>
-					</form>
-				</s.M_Div_Field>
-			)}
-		</AnimatePresence>
+		<s.M_Div_Field>
+			<form onSubmit={handleSubmit} role="search" aria-label="search this site">
+				<input
+					type="text"
+					placeholder="Search"
+					onChange={handleInput}
+					value={value}
+					ref={ref}
+				/>
+			</form>
+		</s.M_Div_Field>
 	);
 }
 

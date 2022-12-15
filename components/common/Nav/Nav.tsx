@@ -5,6 +5,7 @@ import * as s from "./Nav.styles";
 import SearchIcon from "@/assets/icons/search.svg";
 import Hamburger from "./Hamburger";
 import SearchBar from "./SearchBar";
+import { AnimatePresence } from "framer-motion";
 
 function Nav() {
 	const [isSearching, setIsSearching] = useState(false);
@@ -29,10 +30,9 @@ function Nav() {
 
 	return (
 		<s.Header>
-			<SearchBar
-				isSearching={isSearching}
-				close={() => handleSearching(false)}
-			/>
+			<AnimatePresence>
+				{isSearching && <SearchBar close={() => handleSearching(false)} />}
+			</AnimatePresence>
 			<s.Nav>
 				{/* desktop only */}
 				<s.Div_ButtonContainer className="hamburger">

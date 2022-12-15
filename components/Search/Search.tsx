@@ -1,8 +1,9 @@
-import useSWR from "swr";
+import useSWR, { useSWRConfig } from "swr";
 import { fetcher, key } from "./swrFunctions";
 import ProductContainer from "@/components/common/Product/ProductContainer";
 import { useRouter } from "next/router";
 import * as s from "./Search.styles";
+import { useEffect } from "react";
 
 const CDN = process.env.NEXT_PUBLIC_CDN;
 
@@ -17,10 +18,15 @@ function Search() {
 	const keyword = Array.isArray(keywords) ? keywords[0] : keywords;
 
 	/* SWR, functions are defined below */
-	const { data, error } = useSWR(
+	const { data, error, mutate } = useSWR(
 		() => key(keyword),
 		() => fetcher(keyword)
 	);
+
+	/* force the page to update if search is done from search page */
+	useEffect(() => {
+		mutate();
+	}, [router]);
 
 	const productsWithURL = data?.map((product) => {
 		return {

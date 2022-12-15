@@ -21,12 +21,11 @@ export const Main = styled.main`
 		/* cart empty see products button */
 		// defined separately
 
-		/* itemts in cart */
+		/* items in cart */
 		& > h3 {
 			font-size: 1.8rem;
 			font-weight: 600;
 			padding-bottom: 1rem;
-			border-bottom: 0.2rem solid var(--black);
 
 			@media screen and (max-width: ${vars.bpTablet}) {
 				font-size: 1.2rem;
@@ -61,6 +60,8 @@ export const A = styled(A_LinkButton)`
 `;
 
 export const Div_Table = styled.div`
+	border-top: 0.2rem solid var(--black);
+
 	/* each row */
 	& .row {
 		border-bottom: 1px solid var(--black);

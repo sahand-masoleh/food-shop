@@ -60,17 +60,17 @@ function Cart() {
 		return (
 			<s.Main>
 				<div>
-					<p>Something went wrong :(</p>
+					<h3>Something went wrong :(</h3>
 				</div>
 			</s.Main>
 		);
 	}
 
-	if (!data) {
+	if (!data && cart.length > 0) {
 		return (
 			<s.Main>
 				<div>
-					<p>Loading...</p>
+					<h3>Loading...</h3>
 				</div>
 			</s.Main>
 		);
