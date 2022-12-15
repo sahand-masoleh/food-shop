@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { vars } from "@/styles/globals";
+import React from "react";
 
 /* search field */
 const Field = styled(motion.div)`
@@ -33,16 +34,16 @@ const Field = styled(motion.div)`
 	}
 `;
 interface M_Div_Fieldable {
-	children: JSX.Element;
+	children: React.ReactNode;
 }
-export const M_Div_Field = ({ children }: M_Div_Fieldable) => {
+export const M_Div_Field = ({ children }: React.PropsWithChildren) => {
 	return (
 		<Field
 			as={motion.div}
 			initial={{ height: 0 }}
 			animate={{ height: "4rem" }}
 			exit={{ height: 0 }}
-			transition={{ bounce: false, duration: 0.2 }}
+			transition={{ duration: 0.2, ease: "linear" }}
 		>
 			{children}
 		</Field>

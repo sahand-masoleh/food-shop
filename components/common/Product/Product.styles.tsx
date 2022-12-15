@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { maxWidth, vars } from "@/styles/globals";
+import React from "react";
 
 /* container */
-export const SECTION_ProductContainer = styled.section`
+
+const Section_ProductContainer = styled(motion.section)`
 	${maxWidth()}
 	margin: 0 auto;
 	width: 100%;
@@ -17,8 +19,31 @@ export const SECTION_ProductContainer = styled.section`
 	}
 `;
 
-/* wrapper for each item */
-export const ARTICLE_Product = styled.article`
+const container: Variants = {
+	show: { transition: { staggerChildren: 0.2 } },
+};
+
+export const M_Section_ProductContainer = ({
+	children,
+}: {
+	children: JSX.Element[];
+}) => {
+	return (
+		<Section_ProductContainer
+			as={motion.section}
+			initial="hide"
+			animate="show"
+			exit="hide"
+			variants={container}
+		>
+			{children}
+		</Section_ProductContainer>
+	);
+};
+
+/* each item */
+
+export const Article_Product = styled(motion.article)`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -50,6 +75,34 @@ export const ARTICLE_Product = styled.article`
 	}
 `;
 
+const item: Variants = {
+	hide: { opacity: 0, scale: 0.95, transformOrigin: "bottom" },
+	show: { opacity: 1, scale: 1, transition: { ease: "linear" } },
+};
+
+declare type $ElementProps<T> = T extends React.ComponentType<infer Props>
+	? Props extends object
+		? Props
+		: never
+	: never;
+
+type M_Article_Productable = {
+	children: React.ReactNode;
+} & $ElementProps<typeof Article_Product>;
+
+export const M_Article_Product = ({
+	children,
+	...props
+}: M_Article_Productable) => {
+	return (
+		<Article_Product as={motion.article} variants={item} {...props}>
+			{children}
+		</Article_Product>
+	);
+};
+
+/* wrapper for the image */
+
 export const M_ImageWrapper = styled(motion.div)`
 	position: absolute;
 	border-radius: 2rem;
@@ -76,7 +129,7 @@ export const M_Image = (props: ImageProps) => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			transition={{ bounce: false, duration: 0.2 }}
+			transition={{ duration: 0.2, ease: "linear" }}
 		>
 			<Image {...props} />
 		</M_ImageWrapper>
