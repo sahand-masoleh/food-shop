@@ -1,6 +1,6 @@
-import { PropsWithChildren } from "react";
+import React, { ComponentPropsWithRef, ForwardedRef, forwardRef } from "react";
 import styled from "styled-components";
-import { HTMLMotionProps, motion, SVGMotionProps } from "framer-motion";
+import { AnimationControls, HTMLMotionProps, motion } from "framer-motion";
 import { maxWidth, vars } from "@/styles/globals";
 import { fadeIn_container, fadeIn_items } from "@/styles/animations";
 
@@ -126,18 +126,29 @@ export const Div_Info = styled(motion.div)`
 	}
 `;
 
-export const M_Div_Info = function ({ children }: PropsWithChildren) {
+interface M_Div_Infoable extends ComponentPropsWithRef<"div"> {
+	controls: AnimationControls;
+}
+
+const M_Div_Info = forwardRef(function (
+	{ children, controls }: M_Div_Infoable,
+	ref: ForwardedRef<HTMLDivElement>
+) {
 	return (
 		<Div_Info
+			ref={ref}
 			as={motion.div}
 			variants={fadeIn_container}
 			initial="initial"
-			animate="animate"
+			animate={controls}
 		>
 			{children}
 		</Div_Info>
 	);
-};
+});
+// will not build without displayName
+M_Div_Info.displayName = "M_Div_Info";
+export { M_Div_Info };
 
 // motion enabling wrappers for the orchestration to work
 // CSS is defined above for now

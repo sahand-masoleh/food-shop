@@ -8,7 +8,7 @@ export const fadeIn_container: Variants = {
 };
 
 export const fadeIn_items: Variants = {
-	initial: { opacity: 0, scale: 0.95, y: "10%" },
+	initial: { opacity: 0, scale: 0.95, y: "10%", transition: { duration: 0 } },
 	animate: {
 		opacity: 1,
 		scale: 1,

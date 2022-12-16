@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { useAnimationControls } from "framer-motion";
+import Up from "@/assets/icons/up.svg";
+import useFadeIn from "@/hooks/useFadeIn";
 import QuoteCarousel from "./QuoteCarousel";
 import Badge from "./Badge";
 import * as s from "./Footer.styles";
 import randomColors, { Color } from "./randomColors";
-import Up from "@/assets/icons/up.svg";
-import { fadeIn_items } from "@/styles/animations";
 
 function Footer() {
 	const [colors, setColor] = useState<Color[]>(["yellow", "red"]);
@@ -31,8 +32,10 @@ interface Infoable {
 }
 
 function Info({ badgeColor }: Infoable) {
+	const { elemRef, controls } = useFadeIn();
+
 	return (
-		<s.M_Div_Info>
+		<s.M_Div_Info ref={elemRef} controls={controls}>
 			<Badge color={badgeColor} />
 			<s.M_H3>
 				healthy

@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from "react";
+import React, { ForwardedRef, forwardRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -31,7 +31,7 @@ const Menu = styled(motion.div)`
 `;
 
 interface M_Div_Menuable {
-	children: JSX.Element | JSX.Element[];
+	children: React.ReactNode;
 }
 
 const M_Div_Menu = forwardRef(
