@@ -8,23 +8,25 @@ import * as s from "./Footer.styles";
 
 interface Badgeable {
 	color: string;
+	path: string;
 }
 
-function Badge({ color }: Badgeable) {
+const badges: React.FC<React.SVGProps<SVGSVGElement>>[] = [
+	Badge01,
+	Badge02,
+	Badge03,
+	Badge04,
+	Badge05,
+];
+
+// path is passed in to force a rerender and randomiz the shape on route change
+function Badge({ color, path }: Badgeable) {
 	const [number, setNumber] = useState(0);
 	useEffect(() => {
-		setNumber(Math.floor(Math.random() * foods.length));
-	}, []);
+		setNumber(Math.floor(Math.random() * badges.length));
+	}, [path]);
 
-	const foods: React.FC<React.SVGProps<SVGSVGElement>>[] = [
-		Badge01,
-		Badge02,
-		Badge03,
-		Badge04,
-		Badge05,
-	];
-
-	const Badge = foods[number];
+	const Badge = badges[number];
 
 	return (
 		<s.M_Div className="badge">

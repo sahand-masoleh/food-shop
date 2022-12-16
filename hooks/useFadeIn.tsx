@@ -16,7 +16,7 @@ function useFadeIn() {
 
 	useEffect(() => {
 		// instantiate the observer
-		observer.current = new IntersectionObserver(handleMount);
+		observer.current = new IntersectionObserver(handleMount, { threshold: 1 });
 		// start to observe on first mount and on route change
 		observe();
 		router.events.on("routeChangeComplete", observe);
@@ -30,12 +30,14 @@ function useFadeIn() {
 
 	function observe() {
 		observer.current.observe(elemRef.current);
+		// role back to the begining
+		controls.start("initial");
 	}
 
 	const handleMount: IntersectionObserverCallback = function (e) {
 		if (e[0].isIntersecting) {
-			// role back the begining and restart the animation
-			controls.start("initial").then(() => controls.start("animate"));
+			// restart the animation
+			controls.start("animate");
 			// stop the observer
 			observer.current.disconnect();
 		}
