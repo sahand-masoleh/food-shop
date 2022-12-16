@@ -10,7 +10,7 @@ function Intro() {
 	const foods = foodIcons();
 	return (
 		<s.Div_Intro id="shop">
-			<div className="text-container">
+			<s.M_Div_TextContainer>
 				<span>Our</span>
 				<Icon SVG={foods.next().value} />
 				<span>collection</span>
@@ -31,7 +31,7 @@ function Intro() {
 				<span>your</span>
 				<Icon SVG={foods.next().value} />
 				<span>family</span>
-			</div>
+			</s.M_Div_TextContainer>
 			{/* TODO: overflow causes scroll on parent */}
 			{/* <ForestationBadge /> */}
 		</s.Div_Intro>

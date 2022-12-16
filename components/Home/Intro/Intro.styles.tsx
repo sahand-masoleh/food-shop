@@ -1,53 +1,74 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { maxWidth, vars } from "@/styles/globals";
+import { fadeIn_items } from "@/styles/animations";
+import React from "react";
+
+/* Main Container */
 
 export const Div_Intro = styled.div`
 	${maxWidth("68rem")}
 	margin: 0 auto;
 	position: relative;
+`;
 
-	& > .text-container {
-		margin: 0 1rem;
-		font-family: var(--font-inktrap);
-		font-size: 3.4rem;
-		text-transform: uppercase;
-		text-align: center;
-		line-height: 2ch;
+/* Text Container */
 
-		@media screen and (max-width: ${vars.bpTablet}) {
-			font-size: 1.8rem;
+const Div_TextContainer = styled(motion.div)`
+	margin: 0 1rem;
+	font-family: var(--font-inktrap);
+	font-size: 3.4rem;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 2ch;
+
+	@media screen and (max-width: ${vars.bpTablet}) {
+		font-size: 1.8rem;
+	}
+
+	& > * {
+		transition: opacity var(--transition-duration) linear;
+	}
+
+	&:hover {
+		& > :where(span, svg):not(.focus) {
+			opacity: 0.5;
 		}
+	}
 
-		& > * {
-			transition: opacity var(--transition-duration) linear;
-		}
-
-		&:hover {
-			& > :where(span, svg):not(.focus) {
-				opacity: 0.5;
-			}
-		}
-
-		& > span {
-			&:not(:last-of-type) {
-				margin-right: 0.5ch;
-			}
-			&:where(.focus) {
-				text-decoration: underline;
-			}
-		}
-
-		& > svg {
-			display: inline;
-			object-fit: contain;
-			height: 1ch;
-			width: auto;
+	& > span {
+		&:not(:last-of-type) {
 			margin-right: 0.5ch;
 		}
+		&:where(.focus) {
+			text-decoration: underline;
+		}
+	}
+
+	& > svg {
+		display: inline;
+		object-fit: contain;
+		height: 1ch;
+		width: auto;
+		margin-right: 0.5ch;
 	}
 `;
 
-// Forestation Badge
+export const M_Div_TextContainer = ({ children }: React.PropsWithChildren) => {
+	return (
+		<Div_TextContainer
+			as={motion.div}
+			initial="initial"
+			animate="animate"
+			variants={fadeIn_items}
+		>
+			{children}
+		</Div_TextContainer>
+	);
+};
+
+/* Forestation Badge */
+
 export const A_ReforestationBadge = styled.a`
 	position: absolute;
 	top: 0;

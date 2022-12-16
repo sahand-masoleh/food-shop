@@ -5,12 +5,18 @@ import { DBProductable } from "@/types/Product";
 import useFormattedPrice from "@/hooks/useFormattedPrice";
 import * as s from "./Product.styles";
 
+// props from the db
 export type Productable = Pick<
 	DBProductable,
 	"name" | "cover" | "slices" | "price"
 >;
 
-function Product({ name, cover, slices, price }: Productable) {
+// styling props
+interface Props extends Productable {
+	grow: boolean;
+}
+
+function Product({ name, cover, slices, price, grow }: Props) {
 	const [hovered, setHovered] = useState(false);
 	const formattedPrice = useFormattedPrice(price);
 
@@ -19,7 +25,11 @@ function Product({ name, cover, slices, price }: Productable) {
 	}
 
 	return (
-		<s.M_Article_Product onMouseEnter={handleHover} onMouseLeave={handleHover}>
+		<s.M_Article_Product
+			onMouseEnter={handleHover}
+			onMouseLeave={handleHover}
+			grow={grow}
+		>
 			<Link href={`/products/${name}`}>
 				<AnimatePresence>
 					{hovered && slices ? (

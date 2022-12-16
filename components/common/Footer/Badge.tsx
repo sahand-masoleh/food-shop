@@ -4,6 +4,7 @@ import Badge02 from "@/assets/badges/footer-badge-02.svg";
 import Badge03 from "@/assets/badges/footer-badge-03.svg";
 import Badge04 from "@/assets/badges/footer-badge-04.svg";
 import Badge05 from "@/assets/badges/footer-badge-05.svg";
+import * as s from "./Footer.styles";
 
 interface Badgeable {
 	color: string;
@@ -26,9 +27,11 @@ function Badge({ color }: Badgeable) {
 	const Badge = foods[number];
 
 	return (
-		<Badge
-			style={{ "--badge-color": `var(--${color})` } as React.CSSProperties}
-		/>
+		<s.M_Div className="badge">
+			<Badge
+				style={{ "--badge-color": `var(--${color})` } as React.CSSProperties}
+			/>
+		</s.M_Div>
 	);
 }
 

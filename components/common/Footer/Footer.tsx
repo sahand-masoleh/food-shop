@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import QuoteCarousel from "./QuoteCarousel";
 import Badge from "./Badge";
 import * as s from "./Footer.styles";
 import randomColors, { Color } from "./randomColors";
 import Up from "@/assets/icons/up.svg";
+import { fadeIn_items } from "@/styles/animations";
 
 function Footer() {
 	const [colors, setColor] = useState<Color[]>(["yellow", "red"]);
@@ -30,32 +32,32 @@ interface Infoable {
 
 function Info({ badgeColor }: Infoable) {
 	return (
-		<s.Div_Info>
+		<s.M_Div_Info>
 			<Badge color={badgeColor} />
-			<button
+			<s.M_H3>
+				healthy
+				<br />
+				and delicious
+			</s.M_H3>
+			<s.M_Div className="legal">
+				<Link href="/attribution">attribution</Link>
+				<Link href="/disclaimer">disclaimer</Link>
+			</s.M_Div>
+			<Socials />
+			<s.M_Button
 				onClick={() => {
 					document.querySelector("body").scrollIntoView({ behavior: "smooth" });
 				}}
 			>
 				<Up />
-			</button>
-			<h3>
-				healthy
-				<br />
-				and delicious
-			</h3>
-			<div className="legal">
-				<Link href="/attribution">attribution</Link>
-				<Link href="/disclaimer">disclaimer</Link>
-			</div>
-			<Socials />
-		</s.Div_Info>
+			</s.M_Button>
+		</s.M_Div_Info>
 	);
 }
 
 function Socials() {
 	return (
-		<div className="socials">
+		<s.M_Div className="socials">
 			<Link href="https://github.com/sahand-masoleh/food-shop" target="_blank">
 				github
 			</Link>
@@ -68,6 +70,6 @@ function Socials() {
 			<Link href="https://www.linkedin.com/in/sahand-masoleh/" target="_blank">
 				linkedin
 			</Link>
-		</div>
+		</s.M_Div>
 	);
 }

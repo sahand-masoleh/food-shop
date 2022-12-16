@@ -19,15 +19,25 @@ const Section_ProductContainer = styled(motion.section)`
 	}
 `;
 
+// motion variants for the container
+// if the the orchestrate attribute is true, children will fade in one by one
 const container: Variants = {
-	show: { transition: { staggerChildren: 0.2 } },
+	show: (orchestrate: boolean) => ({
+		transition: {
+			staggerChildren: orchestrate ? 0.3 : 0,
+		},
+	}),
 };
+
+interface M_Section_ProductContainerable {
+	children: React.ReactNode;
+	orchestrate: boolean;
+}
 
 export const M_Section_ProductContainer = ({
 	children,
-}: {
-	children: JSX.Element[];
-}) => {
+	orchestrate,
+}: M_Section_ProductContainerable) => {
 	return (
 		<Section_ProductContainer
 			as={motion.section}
@@ -35,6 +45,7 @@ export const M_Section_ProductContainer = ({
 			animate="show"
 			exit="hide"
 			variants={container}
+			custom={orchestrate}
 		>
 			{children}
 		</Section_ProductContainer>
@@ -75,11 +86,23 @@ export const Article_Product = styled(motion.article)`
 	}
 `;
 
+// motion variatns for the child
+// same name as the variants for the container to enable orchestration
 const item: Variants = {
-	hide: { opacity: 0, scale: 0.95, transformOrigin: "bottom" },
-	show: { opacity: 1, scale: 1, transition: { ease: "linear" } },
+	hide: (grow: boolean) => ({
+		opacity: 0,
+		scale: grow ? 0.95 : 1,
+		transformOrigin: "bottom",
+	}),
+	show: {
+		opacity: 1,
+		scale: 1,
+		transition: { duration: 0.3, ease: "linear" },
+	},
 };
 
+// since animations are injected using a wrapper around a styled 'article' element
+// we need to infer the prop types to be able to pass them down
 declare type $ElementProps<T> = T extends React.ComponentType<infer Props>
 	? Props extends object
 		? Props
@@ -88,14 +111,21 @@ declare type $ElementProps<T> = T extends React.ComponentType<infer Props>
 
 type M_Article_Productable = {
 	children: React.ReactNode;
+	grow: boolean;
 } & $ElementProps<typeof Article_Product>;
 
 export const M_Article_Product = ({
 	children,
+	grow,
 	...props
 }: M_Article_Productable) => {
 	return (
-		<Article_Product as={motion.article} variants={item} {...props}>
+		<Article_Product
+			as={motion.article}
+			variants={item}
+			custom={grow}
+			{...props}
+		>
 			{children}
 		</Article_Product>
 	);
@@ -129,7 +159,7 @@ export const M_Image = (props: ImageProps) => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			transition={{ duration: 0.2, ease: "linear" }}
+			transition={{ duration: 0.3, ease: "linear" }}
 		>
 			<Image {...props} />
 		</M_ImageWrapper>

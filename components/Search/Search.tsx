@@ -12,18 +12,18 @@ const CDN = process.env.NEXT_PUBLIC_CDN;
 // types are defined in swrFunctions
 
 function Search() {
-	/* access search params */
+	// access search params
 	const router = useRouter();
 	const keywords = router.query.keyword;
 	const keyword = Array.isArray(keywords) ? keywords[0] : keywords;
 
-	/* SWR, functions are defined below */
+	// SWR, functions are defined below
 	const { data, error, mutate } = useSWR(
 		() => key(keyword),
 		() => fetcher(keyword)
 	);
 
-	/* force the page to update if search is done from search page */
+	// force the page to update if search is done from search page
 	useEffect(() => {
 		mutate();
 	}, [router]);
@@ -53,7 +53,7 @@ function Search() {
 			<div className="title">
 				<h1>{title()}</h1>
 			</div>
-			{data && <ProductContainer products={productsWithURL} />}
+			{data && <ProductContainer products={productsWithURL} orchestrate grow />}
 		</s.Main>
 	);
 }

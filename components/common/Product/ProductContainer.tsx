@@ -3,9 +3,15 @@ import * as s from "./Product.styles";
 
 export interface ProductContainerable {
 	products: (Productable & { id: number })[];
+	orchestrate?: boolean;
+	grow?: boolean;
 }
 
-function ProductContainer({ products }: ProductContainerable) {
+function ProductContainer({
+	products,
+	orchestrate = false,
+	grow = false,
+}: ProductContainerable) {
 	const productMap = products.map((product) => (
 		<Product
 			key={product.id}
@@ -13,11 +19,14 @@ function ProductContainer({ products }: ProductContainerable) {
 			cover={product.cover}
 			slices={product.slices}
 			price={product.price}
+			grow={grow}
 		/>
 	));
 
 	return (
-		<s.M_Section_ProductContainer>{productMap}</s.M_Section_ProductContainer>
+		<s.M_Section_ProductContainer orchestrate={orchestrate}>
+			{productMap}
+		</s.M_Section_ProductContainer>
 	);
 }
 

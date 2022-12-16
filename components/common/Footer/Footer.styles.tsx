@@ -1,7 +1,11 @@
+import { PropsWithChildren } from "react";
 import styled from "styled-components";
+import { HTMLMotionProps, motion, SVGMotionProps } from "framer-motion";
 import { maxWidth, vars } from "@/styles/globals";
+import { fadeIn_container, fadeIn_items } from "@/styles/animations";
 
 /* container */
+
 export const Div_Footer = styled.div`
 	margin-top: auto;
 	padding: 0 1.5rem;
@@ -12,7 +16,8 @@ export const Div_Footer = styled.div`
 `;
 
 /* info */
-export const Div_Info = styled.div`
+
+export const Div_Info = styled(motion.div)`
 	${maxWidth()}
 	margin: 5rem auto;
 	width: 100%;
@@ -32,16 +37,18 @@ export const Div_Info = styled.div`
 	}
 
 	/* info > badge */
-	& > svg {
+	& > .badge {
 		grid-area: badge;
-		height: 16rem;
-		padding-right: 5rem;
-		color: var(--badge-color, var(--yellow));
+		& > svg {
+			height: 16rem;
+			padding-right: 5rem;
+			color: var(--badge-color, var(--yellow));
 
-		@media screen and (max-width: ${vars.bpTablet}) {
-			padding-right: unset;
-			place-self: center;
-			height: min(60vw, 16rem);
+			@media screen and (max-width: ${vars.bpTablet}) {
+				padding-right: unset;
+				place-self: center;
+				height: min(60vw, 16rem);
+			}
 		}
 	}
 
@@ -118,6 +125,49 @@ export const Div_Info = styled.div`
 		}
 	}
 `;
+
+export const M_Div_Info = function ({ children }: PropsWithChildren) {
+	return (
+		<Div_Info
+			as={motion.div}
+			variants={fadeIn_container}
+			initial="initial"
+			animate="animate"
+		>
+			{children}
+		</Div_Info>
+	);
+};
+
+// motion enabling wrappers for the orchestration to work
+// CSS is defined above for now
+
+export const M_H3 = function ({ children, ...props }: HTMLMotionProps<"h3">) {
+	return (
+		<motion.h3 {...props} variants={fadeIn_items}>
+			{children}
+		</motion.h3>
+	);
+};
+export const M_Div = function ({ children, ...props }: HTMLMotionProps<"div">) {
+	return (
+		<motion.div {...props} variants={fadeIn_items}>
+			{children}
+		</motion.div>
+	);
+};
+export const M_Button = function ({
+	children,
+	...props
+}: HTMLMotionProps<"button">) {
+	return (
+		<motion.button {...props} variants={fadeIn_items}>
+			{children}
+		</motion.button>
+	);
+};
+
+/* quotes carousel */
 
 export const Div_Quote = styled.div`
 	//-1.5rem margin to offset the padding on the container
