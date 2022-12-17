@@ -16,17 +16,17 @@ function useFadeIn() {
 
 	useEffect(() => {
 		// instantiate the observer
-		observer.current = new IntersectionObserver(handleMount, { threshold: 1 });
+		observer.current = new IntersectionObserver(handleMount, {
+			threshold: 0.5,
+		});
 		// start to observe on first mount and on route change
 		observe();
-		router.events.on("routeChangeComplete", observe);
 
 		return () => {
 			// clean up
 			observer.current && observer.current.disconnect();
-			router.events.off("routeChangeComplete", observe);
 		};
-	}, []);
+	}, [router.pathname]);
 
 	function observe() {
 		observer.current.observe(elemRef.current);

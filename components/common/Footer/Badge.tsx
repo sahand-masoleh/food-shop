@@ -19,7 +19,7 @@ const badges: React.FC<React.SVGProps<SVGSVGElement>>[] = [
 	Badge05,
 ];
 
-// path is passed in to force a rerender and randomiz the shape on route change
+// path is passed in to force a rerender and randomize the shape on route change
 function Badge({ color, path }: Badgeable) {
 	const [number, setNumber] = useState(0);
 	useEffect(() => {

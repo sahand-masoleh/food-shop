@@ -14,7 +14,7 @@ function Footer() {
 
 	useEffect(() => {
 		setColor(randomColors(2));
-	}, [router]);
+	}, [router.pathname]);
 
 	return (
 		<s.Div_Footer
