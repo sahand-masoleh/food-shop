@@ -50,7 +50,7 @@ function Nav() {
 					<Link href="/about" passHref legacyBehavior>
 						<s.A>about</s.A>
 					</Link>
-					<s.Button onClick={() => handleSearching()}>
+					<s.Button onClick={() => handleSearching()} aria-label="search">
 						<SearchIcon />
 					</s.Button>
 				</s.Div_ButtonContainer>

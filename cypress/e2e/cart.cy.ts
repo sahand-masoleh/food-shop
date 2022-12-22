@@ -35,7 +35,7 @@ describe("cart", () => {
 		cy.findByRole("button", { name: /add .+ \d+/i }).click();
 		cy.intercept("*/cart*").as("cart");
 		cy.wait("@cart");
-		cy.location().then((loc) => expect(loc.pathname).to.be.equal("/cart"));
+		cy.location().its("pathname").should("equal", "/cart");
 	});
 
 	it("shows correct quantity in cart", () => {
@@ -66,7 +66,9 @@ describe("cart", () => {
 
 	it("can delete item", () => {
 		cy.findByRole("button", { name: "delete" }).click();
-		expect(cy.findByRole("heading", { name: /oh no! cart is empty\.\.\./i }));
+		cy.findByRole("heading", { name: /oh no! cart is empty\.\.\./i }).should(
+			"exist"
+		);
 		cy.findByRole("link", { name: /see all products/i }).click();
 		cy.intercept("*shop*").as("shop");
 		cy.wait("@shop");
